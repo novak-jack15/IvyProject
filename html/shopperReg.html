@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>shopper Signup </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Ivy Designs</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Trends</a></li>
+              <li><a href="#">Men</a></li>
+              <li><a href="#">Women</a></li>
+              <li><a href="#">Kids</a></li>
+              <li><a href="#">Couples</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+
+	<h2>User registration page</h2>
+
+	<form action="../php/shopperReg.php" method="POST">
+
+	  <div class="form-group">
+	    <label for="name">Name:</label>
+	    <input type="text" class="form-control" id="name" name="name">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="email">Email address:</label>
+	    <input type="email" class="form-control" id="email" name="email">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="pwd">Password:</label>
+	    <input type="password" class="form-control" id="pwd" name="password">
+	  </div>
+
+	  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+
+</body>
+</html>
