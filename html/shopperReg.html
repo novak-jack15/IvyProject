@@ -20,6 +20,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class="container container-fluid">
   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -48,37 +49,40 @@
       </nav>
       <br>
       <br>
+      <br>
+      <br>
 
-  <h2>User registration page</h2>
+  <!--<h2>Shopper registration page</h2>-->
 
   <form action="../php/shopperReg.php" method="POST">
-
-    <div class="form-group">
+    <fieldset>
+      <legend>Shopper registration page</legend>
+      <div class="form-group col-sm-4 col-md-4">
       <label for="fName">First Name:</label>
       <input type="text" class="form-control" id="fName" name="fName">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-4 col-sm-4">
       <label for="sName">Second Name:</label>
       <input type="text" class="form-control" id="sName" name="sName">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-sm-4 col-md-4">
       <label for="username">Username:</label>
       <input type="text" class="form-control" id="username" name="username">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-sm-8 col-md-8">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" name="email">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-4 col-sm-4">
       <label for="phone">Phone Number:</label>
       <input type="text" class="form-control" id="phone" name="phone">
     </div>
 
-  <div class="form-group col-xs-6">
+  <div class="form-group col-sm-4 col-md-4">
       <label for="county">County:</label>
       <input list="county" class="form-control" name="county" id="county" required title="Enter your county of residence">
       <datalist id="county">
@@ -130,12 +134,10 @@
           <option value="Vihiga">
           <option value="Wajir">
           <option value="West Pokot">
-         ">
-
       </datalist>
   </div>
 
-    <div class="form-group col-xs-6">
+    <div class="form-group col-sm-4 col-md-4">
         <label for="constituency">Constituency:</label>
         <input list="constituency" class="form-control" id="constituency" name="constituency" required title="enter your constiturncy of residence">
         <datalist id="constituency">
@@ -390,14 +392,25 @@
         </datalist>
     </div>
 
+    <!--<div class="col-md-4 col-sm-4"></div>-->
 
-    <div class="form-group">
+    <div class="clearfix"></div>
+
+    <div class="form-group col-sm-4 col-md-4">
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" name="password">
     </div>
 
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <div class="clearfix"></div>
 
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+    </fieldset>
+
+    
+</form>
+</div>
 </body>
 </html>
