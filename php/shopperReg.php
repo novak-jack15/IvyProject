@@ -59,6 +59,7 @@ VALUES ('$shopperfName', '$shoppersName', '$shopperusername', '$shopperemail', '
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
+    header('Location: ../html/shopperSuccess.html');
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
