@@ -59,6 +59,7 @@ VALUES ('$designerfName', '$designersName', '$designerusername', '$designeremail
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
+     header('Location: ../html/designerSuccess.html');
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
