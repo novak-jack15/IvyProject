@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .error
+    {
+      color: black;
+      font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+      font-size:16px;
+    }
+  </style>
 </head>
 <body>
   
@@ -36,7 +45,16 @@
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Enter Password" name="password">
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" name="submit" class="btn btn-success">Login</button>
+            <span class="error">
+                <?php 
+                  if(isset($loginError))
+                  {
+                    echo $loginError;
+                  } 
+                ?> 
+              </span>
+            <br><br>
           </form>
 
         </div>
