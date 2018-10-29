@@ -18,28 +18,18 @@
     echo "Connected successfully";
 
     if(isset($_POST['submit'])){
-      echo 'submit working';
 
       if(empty($_POST['email']) || empty($_POST['password'])){
-        echo $error = 'something is missing';
+          s$error = 'something is missing';
       }
       else{
-        echo "all is well";
-        echo "<br>";
-        echo $shopperEmail = $_POST['email'];
-        echo "<br>";
-        echo $shopperPassword = $_POST['password'];
-        echo "<br>";
-        echo $shopperEmail = stripslashes($shopperEmail);
-        echo "<br>";
-        echo $shopperPassword = stripslashes($shopperPassword);
-        echo "<br>";
-        echo $shopperEmail = mysqli_real_escape_string($conn, $shopperEmail);
-        echo "<br>";
-        echo $shopperPassword = mysqli_real_escape_string($conn, $shopperPassword);
-        echo "<br>";
-        echo $shopperPassword = md5($shopperPassword);
-        echo "<br>";
+        $shopperEmail = $_POST['email'];
+        $shopperPassword = $_POST['password'];
+        $shopperEmail = stripslashes($shopperEmail);
+        $shopperPassword = stripslashes($shopperPassword);
+        $shopperEmail = mysqli_real_escape_string($conn, $shopperEmail);
+        $shopperPassword = mysqli_real_escape_string($conn, $shopperPassword);
+        $shopperPassword = md5($shopperPassword);
 
         $sql="SELECT shopperID, shopperUsername FROM shopperinfo WHERE shopperEmail = '$shopperEmail' AND shopperPassword = '$shopperPassword'";
 
@@ -48,12 +38,10 @@
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
         if(mysqli_num_rows($result) == 1){
-          echo $_SESSION['shopperID'] = $row['shopperID'];
-          echo "<br>";
-          echo $_SESSION['shopperUsername'] = $row['shopperUsername'];
-          echo "<br>";
-          echo 'log in was successfully';
-          header("location: ../php/designs.php"); // Redirecting To Other Page
+          $_SESSION['shopperID'] = $row['shopperID'];
+          $_SESSION['shopperUsername'] = $row['shopperUsername'];
+
+          header("location: ../html/designs.php"); // Redirecting To Other Page
         }
         else{
           $error = "Incorrect username or password.";
