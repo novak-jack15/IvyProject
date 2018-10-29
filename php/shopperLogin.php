@@ -7,69 +7,58 @@
   $dbname = "ivyproject";
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  echo "After connection ";
+  
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-
-
-  $error = ""; //Variable for storing our errors.
-
-  if(isset($_POST["submit"]))
-  {
-    if(empty($_POST["username"]) || empty($_POST["password"]))
-    {
-      $error = "Both fields are required.";
-
-    }
-    else
-    {
-      // Define $username and $password
-      echo "I am past erroer";
-      $password=$_POST['password'];
-
-      if (isset($_POST['email'])) 
-      { 
-        echo $shopperEmail = trim($_POST["email"]);
-        echo "I am in erroer";
-      } 
-
-      if (isset($_POST['password'])) 
-      { 
-       echo $shopperPassword = trim($_POST["password"]);
-      }
-
-      // To protect from MySQL injection
-      echo $shopperEmail = stripslashes($shopperEmail);
-      echo $shopperPassword = stripslashes($shopperPassword);
-      echo $shopperEmail = mysqli_real_escape_string($dbname, $shopperEmail);
-      echo $shopperPassword = mysqli_real_escape_string($dbname, $shopperPassword);
-      echo $shopperPassword = md5($shopperPassword);
-      
-      //Check username and password from database
-      $sql="SELECT shopperID, shopperusername FROM shopperinfo WHERE shopperemail='$shopperEmail' and shopperPassword='$shopperPassword'";
-
-      $result=mysqli_query($dbname,$sql);
-
-      $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-
-      
-      //If username and password exist in our database then create a session.
-      //Otherwise echo error.
-      
-      if(mysqli_num_rows($result) == 1)
-      {
-        $_SESSION['shopperusername'] = $row['shopperusername'];
-        $_SESSION['shopperID'] = $row['shopperID']; // Initializing Session
-        //header("location: designs.html"); // Redirecting To Other Page
-        echo "login successful";
-      }
-      else
-      {
-        echo $loginError = "Incorrect username or password.";
-      }
-
-    }
+// Check connection
+  if (!$conn){
+      die("Connection failed: " . mysqli_connect_error());
   }
+  else{
+    echo "Connected successfully";
 
+    if(isset($_POST['submit'])){
+      echo 'submit working';
+
+      if(empty($_POST['email']) || empty($_POST['password'])){
+        echo $error = 'something is missing';
+      }
+      else{
+        echo "all is well";
+        echo "<br>";
+        echo $shopperEmail = $_POST['email'];
+        echo "<br>";
+        echo $shopperPassword = $_POST['password'];
+        echo "<br>";
+        echo $shopperEmail = stripslashes($shopperEmail);
+        echo "<br>";
+        echo $shopperPassword = stripslashes($shopperPassword);
+        echo "<br>";
+        echo $shopperEmail = mysqli_real_escape_string($conn, $shopperEmail);
+        echo "<br>";
+        echo $shopperPassword = mysqli_real_escape_string($conn, $shopperPassword);
+        echo "<br>";
+        echo $shopperPassword = md5($shopperPassword);
+        echo "<br>";
+
+        $sql="SELECT shopperID, shopperUsername FROM shopperinfo WHERE shopperEmail = '$shopperEmail' AND shopperPassword = '$shopperPassword'";
+
+        $result=mysqli_query($conn,$sql);
+
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        if(mysqli_num_rows($result) == 1){
+          echo $_SESSION['shopperID'] = $row['shopperID'];
+          echo "<br>";
+          echo $_SESSION['shopperUsername'] = $row['shopperUsername'];
+          echo "<br>";
+          echo 'log in was successfully';
+          header("location: ../php/designs.php"); // Redirecting To Other Page
+        }
+        else{
+          $error = "Incorrect username or password.";
+        }
+      }
+    }
+  } 
 ?>

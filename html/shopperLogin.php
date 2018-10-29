@@ -37,6 +37,13 @@
         </div>
 
         <div class="col-12 form-input">
+          <h3 class="error">
+            <?php 
+              if(isset($error)){
+                echo $error;
+              }  
+            ?>
+          </h3>
 
           <form action="../php/shopperLogin.php" method="POST">
             <div class="form-group">
@@ -46,17 +53,9 @@
               <input type="password" class="form-control" placeholder="Enter Password" name="password">
             </div>
             <button type="submit" name="submit" class="btn btn-success">Login</button>
-            <span class="error">
-                <?php 
-                  if(isset($loginError))
-                  {
-                    echo $loginError;
-                  } 
-                ?> 
-              </span>
-            <br><br>
           </form>
-
+    
+            <br><br>
         </div>
 
         <div class="col-12 forgot">
