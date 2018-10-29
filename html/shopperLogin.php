@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +40,8 @@
             <?php 
               if(isset($error)){
                 echo $error;
-              }  
+              }
+              
             ?>
           </h3>
 
