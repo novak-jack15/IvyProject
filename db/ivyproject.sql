@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2018 at 12:19 PM
+-- Generation Time: Oct 30, 2018 at 04:16 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -25,22 +25,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clothesinfo`
+--
+
+DROP TABLE IF EXISTS `clothesinfo`;
+CREATE TABLE IF NOT EXISTS `clothesinfo` (
+  `clothID` int(10) NOT NULL AUTO_INCREMENT,
+  `designerID` int(10) NOT NULL,
+  `clothName` varchar(40) NOT NULL,
+  `clothDescription` varchar(255) NOT NULL,
+  `clothPrice` int(10) NOT NULL,
+  `clothCategory` varchar(40) NOT NULL,
+  `dateOfUpload` varchar(40) NOT NULL,
+  PRIMARY KEY (`clothID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `designerinfo`
 --
 
 DROP TABLE IF EXISTS `designerinfo`;
 CREATE TABLE IF NOT EXISTS `designerinfo` (
   `designerID` int(10) NOT NULL AUTO_INCREMENT,
-  `designerfName` varchar(40) NOT NULL,
-  `designersName` varchar(40) NOT NULL,
-  `designerusername` varchar(40) NOT NULL,
-  `designeremail` varchar(40) NOT NULL,
-  `designerPhonenumber` int(15) NOT NULL,
-  `designercounty` varchar(40) NOT NULL,
-  `designerconstituency` varchar(40) NOT NULL,
+  `designerFname` varchar(40) NOT NULL,
+  `designerSname` varchar(40) NOT NULL,
+  `designerUsername` varchar(40) NOT NULL,
+  `designerEmail` varchar(40) NOT NULL,
+  `designerPhonenumber` varchar(15) NOT NULL,
+  `designerCounty` varchar(40) NOT NULL,
+  `designerConstituency` varchar(40) NOT NULL,
   `designerPassword` varchar(40) NOT NULL,
   PRIMARY KEY (`designerID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `designerinfo`
+--
+
+INSERT INTO `designerinfo` (`designerID`, `designerFname`, `designerSname`, `designerUsername`, `designerEmail`, `designerPhonenumber`, `designerCounty`, `designerConstituency`, `designerPassword`) VALUES
+(3, 'sylvia', 'yvonne', 'yvette', 'jobokello5@gmail.com', '734665786', 'nairobi', 'Embakasi', 'efb02011d94efa80ae173716e51bad47'),
+(4, 'dedan', 'sewe', 'dedan', 'sewe@yahoo.com', '734665786', 'nairobi', 'Embakasi', '3e2c40ab0228b135920d1ee60574bbce');
 
 -- --------------------------------------------------------
 
@@ -108,16 +134,25 @@ CREATE TABLE IF NOT EXISTS `refunds` (
 DROP TABLE IF EXISTS `shopperinfo`;
 CREATE TABLE IF NOT EXISTS `shopperinfo` (
   `shopperID` int(20) NOT NULL AUTO_INCREMENT,
-  `shopperfName` varchar(40) NOT NULL,
-  `shoppersName` varchar(40) NOT NULL,
-  `shopperusername` varchar(40) NOT NULL,
-  `shopperemail` varchar(40) NOT NULL,
+  `shopperFname` varchar(40) NOT NULL,
+  `shopperSname` varchar(40) NOT NULL,
+  `shopperUsername` varchar(40) NOT NULL,
+  `shopperEmail` varchar(40) NOT NULL,
   `shopperPhonenumber` varchar(15) NOT NULL,
   `shopperCounty` varchar(40) NOT NULL,
   `shopperConstituency` varchar(40) NOT NULL,
   `shopperPassword` varchar(40) NOT NULL,
   PRIMARY KEY (`shopperID`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shopperinfo`
+--
+
+INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopperUsername`, `shopperEmail`, `shopperPhonenumber`, `shopperCounty`, `shopperConstituency`, `shopperPassword`) VALUES
+(9, 'job', 'okello', 'jobson', 'jobokello5@gmail.com', '0728633625', 'nairobi', 'kibra', '685b142ec68c96fd2d898b11da966670'),
+(10, 'yvonne', 'sylvia', 'yvette', 'sylviayvonne65@gmail.com', '0728633625', 'nairobi', 'kibra', 'efb02011d94efa80ae173716e51bad47'),
+(11, 'dedan', 'sewe', 'sewe', 'sewe@yahoo.com', '2243545231', 'Kisumu', 'kombewa', 'ad8b2bfedc34541070953461e62f533a');
 
 -- --------------------------------------------------------
 
@@ -128,16 +163,23 @@ CREATE TABLE IF NOT EXISTS `shopperinfo` (
 DROP TABLE IF EXISTS `trpagentinfo`;
 CREATE TABLE IF NOT EXISTS `trpagentinfo` (
   `trpAgentID` int(11) NOT NULL AUTO_INCREMENT,
-  `trpAgentfName` varchar(40) NOT NULL,
-  `trpAgentsName` varchar(40) NOT NULL,
-  `trpAgentusername` varchar(40) NOT NULL,
-  `trpAgentemail` varchar(40) NOT NULL,
-  `trpAgentPhonenumber` int(15) NOT NULL,
-  `trpAgentcounty` varchar(40) NOT NULL,
-  `trpAgentconstituency` varchar(40) NOT NULL,
+  `trpAgentFname` varchar(40) NOT NULL,
+  `trpAgentSname` varchar(40) NOT NULL,
+  `trpAgentUsername` varchar(40) NOT NULL,
+  `trpAgentEmail` varchar(40) NOT NULL,
+  `trpAgentPhonenumber` varchar(15) NOT NULL,
+  `trpAgentCounty` varchar(40) NOT NULL,
+  `trpAgentConstituency` varchar(40) NOT NULL,
   `trpAgentPassword` varchar(40) NOT NULL,
   PRIMARY KEY (`trpAgentID`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `trpagentinfo`
+--
+
+INSERT INTO `trpagentinfo` (`trpAgentID`, `trpAgentFname`, `trpAgentSname`, `trpAgentUsername`, `trpAgentEmail`, `trpAgentPhonenumber`, `trpAgentCounty`, `trpAgentConstituency`, `trpAgentPassword`) VALUES
+(6, 'dedan', 'sewe', 'dedan', 'sewe@yahoo.com', '2243545231', 'nairobi', 'kibra', 'ad8b2bfedc34541070953461e62f533a');
 
 -- --------------------------------------------------------
 

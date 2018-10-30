@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>designer Login</title>
+  <title>trpAgent Login</title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <link rel="stylesheet" type="text/css" href="../css/shopperLogin.css">
@@ -11,12 +11,12 @@
 </head>
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Ivy Designs and Stores</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Designer Login Page</h5>
-      </nav>
-      <a class="btn btn-outline-primary" href="designerReg.html">Sign Up</a>
-    </div>
+    <h5 class="my-0 mr-md-auto font-weight-normal">Ivy Designs and Stores</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Transport Agent Login Page</h5>
+    </nav>
+    <a class="btn btn-outline-primary" href="trpAgentReg.html">Sign Up</a>
+  </div>
 
   <div class="modal-dialog text-center">
     <div class="col-sm-9 main-section">
@@ -27,14 +27,14 @@
         </div>
 
         <div class="col-12 form-input">
-          <form>
+          <form action="../php/trpAgentLogin.php" method="POST">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Enter Email" name="">
+              <input type="email" class="form-control" placeholder="Enter Email" name="email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Enter Password" name="">
+              <input type="password" class="form-control" placeholder="Enter Password" name="password">
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" name="submit" class="btn btn-success">Login</button>
             
           </form> 
         </div>

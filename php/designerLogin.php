@@ -14,8 +14,7 @@
   if (!$conn){
       die("Connection failed: " . mysqli_connect_error());
   }
-  else
-  {
+  else{
     echo "Connected successfully";
 
     if(isset($_POST['submit'])){
@@ -26,15 +25,15 @@
           $error = 'something is missing';
       }
       else{
-        $trpAgentEmail = $_POST['email'];
-        $trpAgentPassword = $_POST['password'];
-        $trpAgentEmail = stripslashes($trpAgentEmail);
-        $trpAgentPassword = stripslashes($trpAgentPassword);
-        $trpAgentEmail = mysqli_real_escape_string($conn, $trpAgentEmail);
-        $trpAgentPassword = mysqli_real_escape_string($conn, $trpAgentPassword);
-        $trpAgentPassword = md5($trpAgentPassword);
+        $designerEmail = $_POST['email'];
+        $designerPassword = $_POST['password'];
+        $designerEmail = stripslashes($designerEmail);
+        $designerPassword = stripslashes($designerPassword);
+        $designerEmail = mysqli_real_escape_string($conn, $designerEmail);
+        $designerPassword = mysqli_real_escape_string($conn, $designerPassword);
+        $designerPassword = md5($designerPassword);
 
-        $sql="SELECT trpAgentID, trpAgentUsername FROM trpAgentinfo WHERE trpAgentEmail = '$trpAgentEmail' AND trpAgentPassword = '$trpAgentPassword'";
+        $sql="SELECT designerID, designerUsername FROM designerinfo WHERE designerEmail = '$designerEmail' AND designerPassword = '$designerPassword'";
 
         $result=mysqli_query($conn, $sql);
 
@@ -43,10 +42,10 @@
         if(mysqli_num_rows($result) == 1){
 
           //taking session variables
-          $_SESSION['trpAgentID'] = $row['trpAgentID'];
-          $_SESSION['trpAgentUsername'] = $row['trpAgentUsername'];
+          $_SESSION['designerID'] = $row['designerID'];
+          $_SESSION['designerUsername'] = $row['designerUsername'];
 
-          header("location: ../html/trpAgentHome.php"); // Redirecting To Other Page
+          header("location: ../html/designerHome.php"); // Redirecting To Other Page
         }
         else{
           $error = "Incorrect username or password.";

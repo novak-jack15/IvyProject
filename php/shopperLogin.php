@@ -20,7 +20,7 @@
     if(isset($_POST['submit'])){
 
       if(empty($_POST['email']) || empty($_POST['password'])){
-          s$error = 'something is missing';
+          $error = 'something is missing';
       }
       else{
         $shopperEmail = $_POST['email'];
@@ -38,6 +38,8 @@
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
         if(mysqli_num_rows($result) == 1){
+
+          //taking session variables
           $_SESSION['shopperID'] = $row['shopperID'];
           $_SESSION['shopperUsername'] = $row['shopperUsername'];
 
