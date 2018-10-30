@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 30, 2018 at 04:16 AM
+-- Generation Time: Oct 30, 2018 at 11:18 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -100,7 +100,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `clothDescription` varchar(400) NOT NULL,
   `orderPrice` int(10) NOT NULL,
   `shopperID` int(10) NOT NULL,
-  `DesignerID` int(10) NOT NULL,
+  `designerID` int(10) NOT NULL,
+  `paymentStatus` varchar(20) NOT NULL DEFAULT 'pending',
   `designerStatus` varchar(20) NOT NULL,
   `trpAgentStatus` varchar(20) NOT NULL,
   `shopperStatus` varchar(20) NOT NULL,

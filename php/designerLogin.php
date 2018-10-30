@@ -48,7 +48,7 @@
           header("location: ../html/designerHome.php"); // Redirecting To Other Page
         }
         else{
-          $error = "Incorrect username or password.";
+          echo $error = "Incorrect username or password.";
         }
       }
     }
