@@ -29,6 +29,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<div class="container container-fluid">
 	<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -61,6 +62,42 @@
         </div>
       </nav>
 
+      <br>
+      <br>
+      <br>
+
+
+      <?php
+			$db = mysqli_connect("localhost", "root", "", "ivyproject");
+			$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo";
+			$result = mysqli_query($db, $sql);
+
+			while ($row = mysqli_fetch_array($result)) {
+				//echo "<div id='img_div'>";
+					//echo "<img src='images/".$row['image']."'>";
+					//echo "<p>".$row['textVal']."</p>";
+				//echo "</div>";
+
+				//echo "<div class='col-md-1 col-sm-1'></div>";	
+				echo "<div class='col-sm-3 col-md-3 card' style='width:200px; border: 1px solid grey; border-radius: 10px;'>";
+					echo "<br>";
+				    echo "<img class='card-img-top' src='../uploads/".$row['image']."' alt='Card image' style='width:100%; max-height: 237px;'>";
+				    echo "<div class='card-body'>";
+				      echo "<h4 class='card-title'>".$row['clothName']."</h4>";
+				      //echo "<p class='card-text'>".$row['clothDescription']."</p>";
+				      echo "<p class='card-text'>".$row['clothPrice']."</p>";
+				      echo "<button class = 'text-center btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
+				      echo "<br>";
+				      echo "<br>";
+				    echo "</div>";
+  				echo "</div>";
+  				//echo "<div class='col-md-1 col-sm-1'></div>";
+  				
+			}
+
+		?>
+
+      
       	<footer class=" site-footer navbar navbar-fixed-bottom navbar-default container-fluid">
 		    <div id="theContent">
 		        <div class="col-md-3 col-sm-3">
@@ -83,8 +120,8 @@
 					<ul>
 		        </div>
 		    </div>
-		</footer>
+		</footer>-->
 </div>
-
+</div>
 </body>
 </html>

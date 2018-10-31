@@ -11,7 +11,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check  whether the connection was successful
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
+else 
 echo "Connected successfully";
 
 if (isset($_POST['fName'])) 

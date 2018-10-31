@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 30, 2018 at 11:18 AM
+-- Generation Time: Oct 31, 2018 at 02:01 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -36,9 +36,26 @@ CREATE TABLE IF NOT EXISTS `clothesinfo` (
   `clothDescription` varchar(255) NOT NULL,
   `clothPrice` int(10) NOT NULL,
   `clothCategory` varchar(40) NOT NULL,
-  `dateOfUpload` varchar(40) NOT NULL,
+  `image` varchar(10000) NOT NULL,
   PRIMARY KEY (`clothID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clothesinfo`
+--
+
+INSERT INTO `clothesinfo` (`clothID`, `designerID`, `clothName`, `clothDescription`, `clothPrice`, `clothCategory`, `image`) VALUES
+(1, 4, 'dashiki', 'for the couples', 10000, 'couples', 'couple (10).jpg'),
+(2, 4, 'dashiki', 'for the couples', 10000, 'couples', 'couple (10).jpg'),
+(12, 4, 'Jack Johnson', 'f gywgfvghgefve', 10000, 'men', 'couple (10).jpg'),
+(11, 4, 'uhygf', 'byughv', 12345, 'men', 'couple (10).jpg'),
+(10, 4, 'gehbd', 'kjihug', 10000, 'men', 'couple (10).jpg'),
+(9, 4, 'dcbsu', 'ds hv vdsv', 10000, 'men', 'couple (10).jpg'),
+(8, 4, 'dashiki', 'fsacv', 10000, 'men', 'couple (10).jpg'),
+(13, 4, 'dashiki', 'youte', 10000, 'men', 'couple (10).jpg'),
+(14, 4, 'Royal Kitenge', 'gfyugfwdsx', 10000, 'men', 'couple (10).jpg'),
+(15, 4, 'itdwgsyd', 'jeby f', 3785, 'men', 'couple (10).jpg'),
+(16, 4, 'cr ftg', 'gfvcg cdc', 200, 'men', 'couple (10).jpg');
 
 -- --------------------------------------------------------
 
