@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 31, 2018 at 02:01 PM
+-- Generation Time: Nov 01, 2018 at 01:20 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `clothesinfo` (
   `clothCategory` varchar(40) NOT NULL,
   `image` varchar(10000) NOT NULL,
   PRIMARY KEY (`clothID`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clothesinfo`
@@ -55,7 +55,13 @@ INSERT INTO `clothesinfo` (`clothID`, `designerID`, `clothName`, `clothDescripti
 (13, 4, 'dashiki', 'youte', 10000, 'men', 'couple (10).jpg'),
 (14, 4, 'Royal Kitenge', 'gfyugfwdsx', 10000, 'men', 'couple (10).jpg'),
 (15, 4, 'itdwgsyd', 'jeby f', 3785, 'men', 'couple (10).jpg'),
-(16, 4, 'cr ftg', 'gfvcg cdc', 200, 'men', 'couple (10).jpg');
+(16, 4, 'cr ftg', 'gfvcg cdc', 200, 'men', 'couple (10).jpg'),
+(17, 4, 'ogaoo', 'cpouples', 2437, 'couples', 'couple (5).jpg'),
+(18, 4, 'man25', 'urban', 10000, 'men', 'men_2_225x225.jpg'),
+(19, 4, 'nguo ya brown', 'hii nguo ni fire', 5000, 'men', 'men (18).jpg'),
+(20, 4, 'pia hii ni nomare', 'bro', 560, 'men', 'men (21).jpg'),
+(21, 4, 'slayqueen armor', 'drops', 500, 'women', 'women (2).jpg'),
+(22, 4, 'crew regalia', 'kjfkehwdgsy', 6589, 'women', 'women (7).jpg');
 
 -- --------------------------------------------------------
 

@@ -27,6 +27,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.grow { transition: all .2s ease-in-out; }
+  	.grow-button { transition: all .1s ease-in-out; }
+	.grow:hover {
+	 transform: scale(1.1);
+	 z-index: 1;
+	 background:  #88ff4d;
+	}
+	.grow-button:hover {
+	 transform: scale(1.2);
+	 z-index: 1;
+	 background-color: red !important;
+	}
+  </style>
 </head>
 <body>
 	<div class="container container-fluid">
@@ -64,7 +78,6 @@
 
       <br>
       <br>
-      <br>
 
 
       <?php
@@ -73,32 +86,107 @@
 			$result = mysqli_query($db, $sql);
 
 			while ($row = mysqli_fetch_array($result)) {
-				//echo "<div id='img_div'>";
-					//echo "<img src='images/".$row['image']."'>";
-					//echo "<p>".$row['textVal']."</p>";
-				//echo "</div>";
 
-				//echo "<div class='col-md-1 col-sm-1'></div>";	
-				echo "<div class='col-sm-3 col-md-3 card' style='width:200px; border: 1px solid grey; border-radius: 10px;'>";
+				echo "<div class='col-sm-3 col-md-3 card grow' style='width:270px; border: 1px solid grey; border-radius: 15px; margin: 5px;'>";
 					echo "<br>";
-				    echo "<img class='card-img-top' src='../uploads/".$row['image']."' alt='Card image' style='width:100%; max-height: 237px;'>";
+				    echo "<img class='card-img-top' src='../uploads/".$row['image']."' alt='Card image' style='width: 225px; height: 225px; border-radius: 10px;'>";
 				    echo "<div class='card-body'>";
-				      echo "<h4 class='card-title'>".$row['clothName']."</h4>";
-				      //echo "<p class='card-text'>".$row['clothDescription']."</p>";
-				      echo "<p class='card-text'>".$row['clothPrice']."</p>";
-				      echo "<button class = 'text-center btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
+				      echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold;' class='card-title'>".$row['clothName']."</h4>";
+				      echo "<p class='card-text' style='text-align: center; text-transform: capitalize; font-weight: bold;'>Ksh.".$row['clothPrice']."</p>";
+				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
 				      echo "<br>";
 				      echo "<br>";
 				    echo "</div>";
   				echo "</div>";
-  				//echo "<div class='col-md-1 col-sm-1'></div>";
-  				
 			}
 
 		?>
+	</div>	
 
-      
-      	<footer class=" site-footer navbar navbar-fixed-bottom navbar-default container-fluid">
+      <!-- Footer -->
+<footer style="border: 1px solid grey; background: #red !important;" class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase">Footer Content</h5>
+          <p>Here you can use rows and columns here to organize your footer content.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase">Links</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Link 1</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+      	<!--<footer class=" site-footer navbar navbar-fixed-bottom navbar-default container-fluid">
 		    <div id="theContent">
 		        <div class="col-md-3 col-sm-3">
 
@@ -121,7 +209,6 @@
 		        </div>
 		    </div>
 		</footer>-->
-</div>
-</div>
+
 </body>
 </html>
