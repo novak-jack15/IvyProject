@@ -5,6 +5,7 @@
   $username = "root";
   $password = "";
   $dbname = "ivyproject";
+  $errors = array();
 
   // Create connection
   
@@ -20,7 +21,7 @@
     if(isset($_POST['submit'])){
 
       if(empty($_POST['email']) || empty($_POST['password'])){
-          $error = 'something is missing';
+          array_push($errors,'something is missing');
       }
       else{
         $shopperEmail = $_POST['email'];
@@ -46,7 +47,7 @@
           header("location: ../html/designs.php"); // Redirecting To Other Page
         }
         else{
-          $error = "Incorrect username or password.";
+          array_push($errors,"Incorrect username or password.";
         }
       }
     }
