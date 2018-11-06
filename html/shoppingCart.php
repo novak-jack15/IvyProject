@@ -3,6 +3,9 @@
 	echo 'time to shop';
 	echo $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername']; 
+	echo $login_user;
+
+	$
 
 ?>
 
@@ -39,7 +42,6 @@
 	 transform: scale(1.2);
 	 z-index: 1;
 	 background-color: red !important;
-    d
 	}
   </style>
 </head>
@@ -69,7 +71,7 @@
 
             <!--links for navbar on the right-->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="shoppingCart.php"><img src="../images/cart3.png">  <span class="badge">7</span></a></li>
+              <li><a href="shoppingCart.php"><img src="../images/cart3.png"> <span class="badge">7</span></a></li>
               <li><a title = "click to views your profile" href="#"><span class="glyphicon glyphicon-user"></span><span class="userloggedin"><strong> <?php echo $login_user;?></strong></span><span ></span></a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout<span></span></a></li>
             </ul>
@@ -82,27 +84,22 @@
 
 
       <?php
-			$db = mysqli_connect("localhost", "root", "", "ivyproject");
-			$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo";
-			$result = mysqli_query($db, $sql);
-
-			while ($row = mysqli_fetch_array($result)) {
-
-				echo "<div class='col-sm-3 col-md-3 card grow' style='width:270px; border: 1px solid grey; border-radius: 15px; margin: 5px;'>";
-					echo "<br>";
-				    echo "<img class='card-img-top' src='../uploads/".$row['image']."' alt='Card image' style='width: 225px; height: 225px; border-radius: 10px;'>";
-				    echo "<div class='card-body'>";
-				      echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold;' class='card-title'>".$row['clothName']."</h4>";
-              echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold; display: none' class='card-title'>".$row['clothDescription']."</h4>";
-				      echo "<p class='card-text' style='text-align: center; text-transform: capitalize; font-weight: bold;'>Ksh.".$row['clothPrice']."</p>";
-				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
-				      echo "<br>";
-				      echo "<br>";
-				    echo "</div>";
-  				echo "</div>";
-			}
-
-		?>
+      	$db = mysqli_connect("localhost", "root", "", "ivyown");
+		$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo WHERE clothCategory = 'men'"; 
+	
+		while($res = mysqli_fetch_array($result)) { 		
+			echo "<tr>";
+			echo "<td width='10%'>".$res['jobID']."</td>";
+			echo "<td>".$res['workerFname']."</td>";
+			echo "<td>".$res['workerSname']."</td>";
+			echo "<td>".$res['jobDescription']."</td>";
+			echo "<td>".$res['jobDate']."</td>";
+			echo "<td>".$res['totalCost']."</td>";
+			echo "<td>".$res['clientJobStatus']."</td>";	
+			echo "<td><a href=\"../php/clientjobconfirmation.php?id=$res[jobID]\">Order Delivered</a> | <a href=\"../php/clientjobcancellation.php?id=$res[jobID]\" onClick=\"return confirm('Are you sure you want to cancel the and get a refund?')\">Cancel Order</a></td>";
+			echo "</tr>";		
+		}
+	?>
 	</div>	
 
       <!-- Footer -->
@@ -187,6 +184,6 @@
     <!-- Copyright -->
 
   </footer>
-  
+
 </body>
 </html>

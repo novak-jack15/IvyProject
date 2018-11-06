@@ -39,7 +39,6 @@
 	 transform: scale(1.2);
 	 z-index: 1;
 	 background-color: red !important;
-    d
 	}
   </style>
 </head>
@@ -83,7 +82,7 @@
 
       <?php
 			$db = mysqli_connect("localhost", "root", "", "ivyproject");
-			$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo";
+			$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo WHERE clothCategory = 'couples'";
 			$result = mysqli_query($db, $sql);
 
 			while ($row = mysqli_fetch_array($result)) {
@@ -93,7 +92,6 @@
 				    echo "<img class='card-img-top' src='../uploads/".$row['image']."' alt='Card image' style='width: 225px; height: 225px; border-radius: 10px;'>";
 				    echo "<div class='card-body'>";
 				      echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold;' class='card-title'>".$row['clothName']."</h4>";
-              echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold; display: none' class='card-title'>".$row['clothDescription']."</h4>";
 				      echo "<p class='card-text' style='text-align: center; text-transform: capitalize; font-weight: bold;'>Ksh.".$row['clothPrice']."</p>";
 				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
 				      echo "<br>";
@@ -187,6 +185,6 @@
     <!-- Copyright -->
 
   </footer>
-  
+
 </body>
 </html>

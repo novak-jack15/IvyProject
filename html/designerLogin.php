@@ -1,3 +1,63 @@
+<?php
+  session_start();
+  //gives variable for creating the connection
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ivyproject";
+
+  $error;
+
+  // Create connection
+  
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+  if (!$conn){
+      die("Connection failed: " . mysqli_connect_error());
+  }
+  else{
+    //echo "Connected successfully";
+
+    if(isset($_POST['submit'])){
+
+      //echo 'submit is working';
+
+      if(empty($_POST['email']) || empty($_POST['password'])){
+          $error = 'something is missing';
+      }
+      else{
+        $designerEmail = $_POST['email'];
+        $designerPassword = $_POST['password'];
+        $designerEmail = stripslashes($designerEmail);
+        $designerPassword = stripslashes($designerPassword);
+        $designerEmail = mysqli_real_escape_string($conn, $designerEmail);
+        $designerPassword = mysqli_real_escape_string($conn, $designerPassword);
+        $designerPassword = md5($designerPassword);
+
+        $sql="SELECT designerID, designerUsername FROM designerinfo WHERE designerEmail = '$designerEmail' AND designerPassword = '$designerPassword'";
+
+        $result=mysqli_query($conn, $sql);
+
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        if(mysqli_num_rows($result) == 1){
+
+          //taking session variables
+          $_SESSION['designerID'] = $row['designerID'];
+          $_SESSION['designerUsername'] = $row['designerUsername'];
+
+          header("location: ../html/designerHome.php"); // Redirecting To Other Page
+        }
+        else{
+          $error = "wrong username or password!!!";
+        }
+      }
+    }
+  } 
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +68,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .error
+    {
+      color: #ffff33;
+      font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+      font-size:18px;
+      text-transform: capitalize;
+    }
+  </style>
 </head>
 <body>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -27,7 +96,7 @@
         </div>
 
         <div class="col-12 form-input">
-          <form action="../php/designerLogin.php" method="POST">
+          <form action="designerLogin.php" method="POST">
             <div class="form-group">
               <input type="email" class="form-control" placeholder="Enter Email" name="email">
             </div>
@@ -38,9 +107,17 @@
             
           </form> 
         </div>
+       <br>
+          <h3 class="error">
+            <?php 
+              if(isset($error)){
+                echo $error;
+              }  
+            ?>
+          </h3>
 
         <div class="col-12 forgot">
-          <a href="#">Forgot Password</a>
+          <a href="#">Forgot Password?</a>
         </div>
 
       </div> 

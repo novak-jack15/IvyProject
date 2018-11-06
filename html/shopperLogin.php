@@ -1,3 +1,69 @@
+<?php
+  session_start();
+  //gives variable for creating the connection
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ivyproject";
+
+  $error;
+
+  // Create connection
+  
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+  if (!$conn){
+      die("Connection failed: " . mysqli_connect_error());
+  }
+  else{
+    //echo "Connected successfully";
+
+    if(isset($_POST['submit'])){
+
+      if(empty($_POST['email']) || empty($_POST['password'])){
+          array_push($errors,'something is missing');
+      }
+      else{
+
+        //take data from the form 
+        $shopperEmail = $_POST['email'];
+        $shopperPassword = $_POST['password'];
+
+        //remove any unneccessary characters from the data
+        $shopperEmail = stripslashes($shopperEmail);
+        $shopperPassword = stripslashes($shopperPassword);
+
+        //remove any SQL command by hackers
+        $shopperEmail = mysqli_real_escape_string($conn, $shopperEmail);
+        $shopperPassword = mysqli_real_escape_string($conn, $shopperPassword);
+
+        //encrypt the data
+        $shopperPassword = md5($shopperPassword);
+
+        $sql="SELECT shopperID, shopperUsername FROM shopperinfo WHERE shopperEmail = '$shopperEmail' AND shopperPassword = '$shopperPassword'";
+
+        $result=mysqli_query($conn,$sql);
+
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        if (mysqli_num_rows($result) == 1){
+
+          //taking session variables
+          $_SESSION['shopperID'] = $row['shopperID'];
+          $_SESSION['shopperUsername'] = $row['shopperUsername'];
+
+          header("location: ../html/designs.php"); // Redirecting To Other Page
+        }
+        else{
+          //array_push($errors,"Incorrect username or password.");
+          $error = "wrong username or password!!!";
+        }
+      }
+    }
+  } 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +77,10 @@
   <style type="text/css">
     .error
     {
-      color: black;
+      color: #ffff33;
       font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
-      font-size:16px;
+      font-size:18px;
+      text-transform: capitalize;
     }
   </style>
 </head>
@@ -36,16 +103,9 @@
         </div>
 
         <div class="col-12 form-input">
-          <h3 class="error">
-            <?php 
-              if(isset($error)){
-                echo $error;
-              }
-              
-            ?>
-          </h3>
+          
 
-          <form action="../php/shopperLogin.php" method="POST">
+          <form action="shopperLogin.php" method="POST">
             <div class="form-group">
               <input type="email" class="form-control" placeholder="Enter Email" name="email">
             </div>
@@ -54,12 +114,18 @@
             </div>
             <button type="submit" name="submit" class="btn btn-success">Login</button>
           </form>
-    
-            <br><br>
+            <br>
+            <h3 class="error">
+            <?php 
+              if(isset($error)){
+                echo $error;
+              }  
+            ?>
+          </h3>
         </div>
 
         <div class="col-12 forgot">
-          <a href="#">Forgot Password</a>
+          <a href="#">Forgot Password?</a>
         </div>
 
       </div> 
