@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 01, 2018 at 01:20 PM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: Nov 07, 2018 at 02:59 PM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,17 +26,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `clothesinfo`
 --
 
-DROP TABLE IF EXISTS `clothesinfo`;
-CREATE TABLE IF NOT EXISTS `clothesinfo` (
-  `clothID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `clothesinfo` (
+  `clothID` int(10) NOT NULL,
   `designerID` int(10) NOT NULL,
   `clothName` varchar(40) NOT NULL,
   `clothDescription` varchar(255) NOT NULL,
   `clothPrice` int(10) NOT NULL,
   `clothCategory` varchar(40) NOT NULL,
-  `image` varchar(10000) NOT NULL,
-  PRIMARY KEY (`clothID`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  `image` varchar(10000) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clothesinfo`
@@ -61,7 +57,10 @@ INSERT INTO `clothesinfo` (`clothID`, `designerID`, `clothName`, `clothDescripti
 (19, 4, 'nguo ya brown', 'hii nguo ni fire', 5000, 'men', 'men (18).jpg'),
 (20, 4, 'pia hii ni nomare', 'bro', 560, 'men', 'men (21).jpg'),
 (21, 4, 'slayqueen armor', 'drops', 500, 'women', 'women (2).jpg'),
-(22, 4, 'crew regalia', 'kjfkehwdgsy', 6589, 'women', 'women (7).jpg');
+(22, 4, 'crew regalia', 'kjfkehwdgsy', 6589, 'women', 'women (7).jpg'),
+(23, 5, 'purity', 'hellllo', 12000, 'couples', 'couple (8).jpg'),
+(24, 6, 'sylvia', 'hello', 12000, 'couples', 'couple (6).jpg'),
+(25, 7, 'Micheal', 'helllloooo', 20000, 'men', 'men (9).jpg');
 
 -- --------------------------------------------------------
 
@@ -69,9 +68,8 @@ INSERT INTO `clothesinfo` (`clothID`, `designerID`, `clothName`, `clothDescripti
 -- Table structure for table `designerinfo`
 --
 
-DROP TABLE IF EXISTS `designerinfo`;
-CREATE TABLE IF NOT EXISTS `designerinfo` (
-  `designerID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `designerinfo` (
+  `designerID` int(10) NOT NULL,
   `designerFname` varchar(40) NOT NULL,
   `designerSname` varchar(40) NOT NULL,
   `designerUsername` varchar(40) NOT NULL,
@@ -79,9 +77,8 @@ CREATE TABLE IF NOT EXISTS `designerinfo` (
   `designerPhonenumber` varchar(15) NOT NULL,
   `designerCounty` varchar(40) NOT NULL,
   `designerConstituency` varchar(40) NOT NULL,
-  `designerPassword` varchar(40) NOT NULL,
-  PRIMARY KEY (`designerID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `designerPassword` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `designerinfo`
@@ -89,7 +86,10 @@ CREATE TABLE IF NOT EXISTS `designerinfo` (
 
 INSERT INTO `designerinfo` (`designerID`, `designerFname`, `designerSname`, `designerUsername`, `designerEmail`, `designerPhonenumber`, `designerCounty`, `designerConstituency`, `designerPassword`) VALUES
 (3, 'sylvia', 'yvonne', 'yvette', 'jobokello5@gmail.com', '734665786', 'nairobi', 'Embakasi', 'efb02011d94efa80ae173716e51bad47'),
-(4, 'dedan', 'sewe', 'dedan', 'sewe@yahoo.com', '734665786', 'nairobi', 'Embakasi', '3e2c40ab0228b135920d1ee60574bbce');
+(4, 'dedan', 'sewe', 'dedan', 'sewe@yahoo.com', '734665786', 'nairobi', 'Embakasi', '3e2c40ab0228b135920d1ee60574bbce'),
+(5, 'job', 'opiyo', 'mac', 'jobokello5@gmail.com', '0745673456', 'mombasa', 'kakamega', 'fcea920f7412b5da7be0cf42b8c93759'),
+(6, 'sylvia', 'yvonne', 'syl', 'sylviayvonne65@gmail.com', '', 'mombasa', 'kakamega', 'fcea920f7412b5da7be0cf42b8c93759'),
+(7, 'mark', 'opiyo', 'prosy', 'jobokello5@gmail.com', '', 'Garissa', 'Sirisia', '25f9e794323b453885f5181f1b624d0b');
 
 -- --------------------------------------------------------
 
@@ -97,17 +97,15 @@ INSERT INTO `designerinfo` (`designerID`, `designerFname`, `designerSname`, `des
 -- Table structure for table `dispatch`
 --
 
-DROP TABLE IF EXISTS `dispatch`;
-CREATE TABLE IF NOT EXISTS `dispatch` (
-  `dispatchID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dispatch` (
+  `dispatchID` int(10) NOT NULL,
   `clothName` varchar(40) NOT NULL,
   `trpFee` int(10) NOT NULL,
   `shopperID` int(10) NOT NULL,
   `trpAgentID` int(10) NOT NULL,
   `shopperLattitude` varchar(50) NOT NULL,
   `shopperLongitude` varchar(50) NOT NULL,
-  `deliveryStatus` varchar(20) NOT NULL,
-  PRIMARY KEY (`dispatchID`)
+  `deliveryStatus` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -116,9 +114,8 @@ CREATE TABLE IF NOT EXISTS `dispatch` (
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `orderID` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `orderID` int(10) NOT NULL,
   `clothName` varchar(40) NOT NULL,
   `clothDescription` varchar(400) NOT NULL,
   `orderPrice` int(10) NOT NULL,
@@ -127,8 +124,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `paymentStatus` varchar(20) NOT NULL DEFAULT 'pending',
   `designerStatus` varchar(20) NOT NULL,
   `trpAgentStatus` varchar(20) NOT NULL,
-  `shopperStatus` varchar(20) NOT NULL,
-  PRIMARY KEY (`orderID`)
+  `shopperStatus` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -137,16 +133,14 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Table structure for table `refunds`
 --
 
-DROP TABLE IF EXISTS `refunds`;
-CREATE TABLE IF NOT EXISTS `refunds` (
+CREATE TABLE `refunds` (
   `refundID` int(10) NOT NULL,
   `orderID` int(10) NOT NULL,
   `clothName` varchar(40) NOT NULL,
   `shopperID` int(10) NOT NULL,
   `refundAmount` int(10) NOT NULL,
   `refundStatus` varchar(20) NOT NULL,
-  `reason` varchar(200) NOT NULL,
-  PRIMARY KEY (`refundID`)
+  `reason` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -155,9 +149,8 @@ CREATE TABLE IF NOT EXISTS `refunds` (
 -- Table structure for table `shopperinfo`
 --
 
-DROP TABLE IF EXISTS `shopperinfo`;
-CREATE TABLE IF NOT EXISTS `shopperinfo` (
-  `shopperID` int(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `shopperinfo` (
+  `shopperID` int(20) NOT NULL,
   `shopperFname` varchar(40) NOT NULL,
   `shopperSname` varchar(40) NOT NULL,
   `shopperUsername` varchar(40) NOT NULL,
@@ -165,9 +158,8 @@ CREATE TABLE IF NOT EXISTS `shopperinfo` (
   `shopperPhonenumber` varchar(15) NOT NULL,
   `shopperCounty` varchar(40) NOT NULL,
   `shopperConstituency` varchar(40) NOT NULL,
-  `shopperPassword` varchar(40) NOT NULL,
-  PRIMARY KEY (`shopperID`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `shopperPassword` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `shopperinfo`
@@ -176,7 +168,14 @@ CREATE TABLE IF NOT EXISTS `shopperinfo` (
 INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopperUsername`, `shopperEmail`, `shopperPhonenumber`, `shopperCounty`, `shopperConstituency`, `shopperPassword`) VALUES
 (9, 'job', 'okello', 'jobson', 'jobokello5@gmail.com', '0728633625', 'nairobi', 'kibra', '685b142ec68c96fd2d898b11da966670'),
 (10, 'yvonne', 'sylvia', 'yvette', 'sylviayvonne65@gmail.com', '0728633625', 'nairobi', 'kibra', 'efb02011d94efa80ae173716e51bad47'),
-(11, 'dedan', 'sewe', 'sewe', 'sewe@yahoo.com', '2243545231', 'Kisumu', 'kombewa', 'ad8b2bfedc34541070953461e62f533a');
+(11, 'dedan', 'sewe', 'sewe', 'sewe@yahoo.com', '2243545231', 'Kisumu', 'kombewa', 'ad8b2bfedc34541070953461e62f533a'),
+(12, 'sylvia', 'yvonne', 'syl', 'sylviayvonne65@gmail.com', '', 'mombasa', 'kakamega', 'fcea920f7412b5da7be0cf42b8c93759'),
+(13, 'sylvia', 'yvonne', 'syl', 'sylviayvonne65@gmail.com', '', 'mombasa', 'kakamega', 'fcea920f7412b5da7be0cf42b8c93759'),
+(14, 'sylvia', 'yvonne', 'ivy', 'sylviayvonne65@gmail.com', '', 'kenya', 'sarangombe', 'fcea920f7412b5da7be0cf42b8c93759'),
+(15, 'sylvia', 'yvonne', 'ivy', 'sylviayvonne65@gmail.com', '0745673456', 'mombasa', 'kakamega', 'fcea920f7412b5da7be0cf42b8c93759'),
+(16, 'mark', 'nyang', 'mac', 'jobokello5@gmail.com', '0745673456', 'mombasa', 'kakamega', '25d55ad283aa400af464c76d713c07ad'),
+(17, 'mark', 'nyang', 'mac', 'jobokello5@gmail.com', '0745673456', 'mombasa', 'kakamega', '25d55ad283aa400af464c76d713c07ad'),
+(18, 'sylvia', 'yvonne', 'ivy', 'sylviayvonne65@gmail.com', '', 'mombasa', 'kakamega', '25f9e794323b453885f5181f1b624d0b');
 
 -- --------------------------------------------------------
 
@@ -184,9 +183,8 @@ INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopper
 -- Table structure for table `trpagentinfo`
 --
 
-DROP TABLE IF EXISTS `trpagentinfo`;
-CREATE TABLE IF NOT EXISTS `trpagentinfo` (
-  `trpAgentID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `trpagentinfo` (
+  `trpAgentID` int(11) NOT NULL,
   `trpAgentFname` varchar(40) NOT NULL,
   `trpAgentSname` varchar(40) NOT NULL,
   `trpAgentUsername` varchar(40) NOT NULL,
@@ -194,9 +192,8 @@ CREATE TABLE IF NOT EXISTS `trpagentinfo` (
   `trpAgentPhonenumber` varchar(15) NOT NULL,
   `trpAgentCounty` varchar(40) NOT NULL,
   `trpAgentConstituency` varchar(40) NOT NULL,
-  `trpAgentPassword` varchar(40) NOT NULL,
-  PRIMARY KEY (`trpAgentID`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `trpAgentPassword` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `trpagentinfo`
@@ -211,8 +208,7 @@ INSERT INTO `trpagentinfo` (`trpAgentID`, `trpAgentFname`, `trpAgentSname`, `trp
 -- Table structure for table `wages`
 --
 
-DROP TABLE IF EXISTS `wages`;
-CREATE TABLE IF NOT EXISTS `wages` (
+CREATE TABLE `wages` (
   `wageID` int(11) NOT NULL,
   `orderID` int(11) NOT NULL,
   `designerID` int(11) NOT NULL,
@@ -221,8 +217,87 @@ CREATE TABLE IF NOT EXISTS `wages` (
   `designerWage` int(11) NOT NULL,
   `wageStatus` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-COMMIT;
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `clothesinfo`
+--
+ALTER TABLE `clothesinfo`
+  ADD PRIMARY KEY (`clothID`);
+
+--
+-- Indexes for table `designerinfo`
+--
+ALTER TABLE `designerinfo`
+  ADD PRIMARY KEY (`designerID`);
+
+--
+-- Indexes for table `dispatch`
+--
+ALTER TABLE `dispatch`
+  ADD PRIMARY KEY (`dispatchID`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`orderID`);
+
+--
+-- Indexes for table `refunds`
+--
+ALTER TABLE `refunds`
+  ADD PRIMARY KEY (`refundID`);
+
+--
+-- Indexes for table `shopperinfo`
+--
+ALTER TABLE `shopperinfo`
+  ADD PRIMARY KEY (`shopperID`);
+
+--
+-- Indexes for table `trpagentinfo`
+--
+ALTER TABLE `trpagentinfo`
+  ADD PRIMARY KEY (`trpAgentID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `clothesinfo`
+--
+ALTER TABLE `clothesinfo`
+  MODIFY `clothID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `designerinfo`
+--
+ALTER TABLE `designerinfo`
+  MODIFY `designerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `dispatch`
+--
+ALTER TABLE `dispatch`
+  MODIFY `dispatchID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `orderID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `shopperinfo`
+--
+ALTER TABLE `shopperinfo`
+  MODIFY `shopperID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `trpagentinfo`
+--
+ALTER TABLE `trpagentinfo`
+  MODIFY `trpAgentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
