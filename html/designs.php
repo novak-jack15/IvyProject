@@ -1,8 +1,36 @@
 <?php
 	session_start();
 	echo 'time to shop';
-	echo $_SESSION['shopperID'];
-	$login_user = $_SESSION['shopperUsername']; 
+	$shopper = $_SESSION['shopperID'];
+	$login_user = $_SESSION['shopperUsername'];
+
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ivyproject";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  //items in shopping cart
+  $items = '';
+
+  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' AND paymentStatus='unpaid'";
+
+  if ($result = mysqli_query($conn, $sql)){
+
+    /* determine number of rows result set */
+    echo $row_cnt = mysqli_num_rows($result);
+
+    $items = $row_cnt;
+
+    //printf("Result set has %d rows.\n", $row_cnt);
+
+    /* close result set */
+    mysqli_free_result($result);
+}
+
+
 
 ?>
 
@@ -69,7 +97,8 @@
 
             <!--links for navbar on the right-->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="shoppingCart.php"><img src="../images/cart3.png">  <span class="badge">7</span></a></li>
+              <li><a href="shoppingCart.php"><img src="../images/cart3.png">  <?php if($items>0){ echo "<span class='badge'> $items </span>";}?></a></li>
+
               <li><a title = "click to views your profile" href="#"><span class="glyphicon glyphicon-user"></span><span class="userloggedin"><strong> <?php echo $login_user;?></strong></span><span ></span></a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout<span></span></a></li>
             </ul>
@@ -83,7 +112,7 @@
 
       <?php
 			$db = mysqli_connect("localhost", "root", "", "ivyproject");
-			$sql = "SELECT clothName,clothDescription,clothPrice,image FROM clothesinfo";
+			$sql = "SELECT clothID, clothName,clothDescription,clothPrice,image FROM clothesinfo";
 			$result = mysqli_query($db, $sql);
 
 			while ($row = mysqli_fetch_array($result)) {
@@ -95,7 +124,7 @@
 				      echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold;' class='card-title'>".$row['clothName']."</h4>";
               echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold; display: none' class='card-title'>".$row['clothDescription']."</h4>";
 				      echo "<p class='card-text' style='text-align: center; text-transform: capitalize; font-weight: bold;'>Ksh.".$row['clothPrice']."</p>";
-				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'><a style='text-decoration: none; color: white;' href='#' class=''>Add to Cart</a></button>";
+				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'><a style='text-decoration: none; color: white;' href=\"../php/addToCart.php?id=$row[clothID]\" class=''>Add to Cart</a></button>";
 				      echo "<br>";
 				      echo "<br>";
 				    echo "</div>";
