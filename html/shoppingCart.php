@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	echo 'time to shop';
 	$shopper = $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername'];
 
@@ -29,8 +28,6 @@
     /* close result set */
     mysqli_free_result($result);
 }
-
-
 
 ?>
 
@@ -124,7 +121,7 @@
         <td>Product Number</td>
         <td>Product Name</td>
         <td>Description</td>
-        <td>Price</td>
+        <td>ItemPrice</td>
         <td style="text-align: center;" colspan="2">Designer</td>
         <td>Payment Status</td>
         <td>Designer Status</td>
@@ -143,7 +140,7 @@
           echo "<td>".$row['clothID']."</td>";
           echo "<td>".$row['clothName']."</td>";
           echo "<td>".$row['clothDescription']."</td>";
-          echo "<td> Ksh.".$row['orderPrice']."</td>";
+          echo "<td>Ksh. ".$row['orderPrice']."</td>";
           $desID = $row['designerID'];
           $sql2 = "SELECT designerFname, designerSname FROM designerinfo WHERE designerID = '$desID'";
 
@@ -158,7 +155,7 @@
           echo "<td>".$row['designerStatus']."</td>";
           echo "<td>".$row['trpAgentStatus']."</td>";
           echo "<td>".$row['shopperStatus']."</td>";        
-          echo "<td><button style='margin:5px' type='button' class='btn btn-primary btn-block center-block'><a style='text-decoration: none; color: white;' href=\"../php/shopperConfirmation.php?id=$row[orderID]\">Pay for Order</a></button><button style='margin:5px' type='button' class='btn btn-success center-block'><a style='text-decoration: none; color: white;' href=\"../php/shopperConfirmation.php?id=$row[orderID]\">Order is Delivered</a></button> 
+          echo "<td><button style='margin:5px' type='button' class='btn btn-primary btn-block center-block'><a style='text-decoration: none; color: white;' href=\"../php/shopperPayment.php?id=$row[orderID]\">Pay for Order</a></button><button style='margin:5px' type='button' class='btn btn-success center-block'><a style='text-decoration: none; color: white;' href=\"../php/shopperConfirmation.php?id=$row[orderID]\">Order is Delivered</a></button> 
           <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/shopperCancellation.php?id=$row[orderID]\" onClick=\"return confirm('Are you sure you want to cancel the and get a refund?')\">Cancel Order</a></button></td>";
           echo "</tr>";   
         }

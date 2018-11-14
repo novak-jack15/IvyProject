@@ -18,7 +18,7 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 	else{
-		$sql = "UPDATE orders SET shopperStatus='Confirmed' WHERE orderID='$orderID'";
+		$sql = "DELETE FROM orders WHERE orderID='$orderID'";
 
 		if (mysqli_query($conn, $sql)) {
 	    //echo "update success!!!";
