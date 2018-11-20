@@ -14,7 +14,7 @@
   //items in shopping cart
   $items = '';
 
-  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' AND paymentStatus='unpaid'";
+  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' ORDER BY Country ASC";
 
   if ($result = mysqli_query($conn, $sql)){
 
@@ -124,6 +124,7 @@
         <td>ItemPrice</td>
         <td style="text-align: center;" colspan="2">Designer</td>
         <td>Payment Status</td>
+        <td>Mpesa Code</td>
         <td>Designer Status</td>
         <td>Delivery Status</td>
         <td>Shopper Confirmation</td>
@@ -152,6 +153,7 @@
           }
 
           echo "<td>".$row['paymentStatus']."</td>";
+          echo "<td>".$row['paymentCode']."</td>";
           echo "<td>".$row['designerStatus']."</td>";
           echo "<td>".$row['trpAgentStatus']."</td>";
           echo "<td>".$row['shopperStatus']."</td>";        
