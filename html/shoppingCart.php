@@ -14,7 +14,7 @@
   //items in shopping cart
   $items = '';
 
-  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' ORDER BY Country ASC";
+  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' ORDER BY paymentStatus ASC";
 
   if ($result = mysqli_query($conn, $sql)){
 
@@ -153,7 +153,7 @@
           }
 
           echo "<td>".$row['paymentStatus']."</td>";
-          echo "<td>".$row['paymentCode']."</td>";
+          echo "<td style = 'text-transform: uppercase;'>".$row['paymentCode']."</td>";
           echo "<td>".$row['designerStatus']."</td>";
           echo "<td>".$row['trpAgentStatus']."</td>";
           echo "<td>".$row['shopperStatus']."</td>";        

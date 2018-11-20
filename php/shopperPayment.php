@@ -2,13 +2,9 @@
 	session_start();
 	$shopper = $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername'];
-  echo $ID = $_GET['id'];
-  echo $_SESSION['payID'] = $_GET['id'];
-  if(isset($_SESSION['payID'])){
-      echo $payID = $_SESSION['payID'];
-  }
-  echo $payID = $_SESSION['pay'];
-  echo '<br>';
+  $ID = $_GET['id'];
+  $_SESSION['payID'] = $ID;
+
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -20,26 +16,9 @@
   //items in shopping cart
   $items = '';
 
-  if(isset($_POST['submit'])){
-      if(isset($_POST['paymentCode'])){
+  $sql = "SELECT * FROM orders WHERE orderID='$ID'";
 
-        echo $mpesaCode = trim($_POST['paymentCode']);
-
-        $sql = "UPDATE orders SET paymentCode ='$mpesaCode' WHERE orderID='$payID'";
-
-        if (mysqli_query($conn, $sql)) {
-          echo "update success!!!";
-          ///header('Location: ../html/shoppingCart.php');
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-
-      }
-      //header('Location: mpesaInsert.php');
-  }else{
-    $sql = "SELECT * FROM orders WHERE orderID='$ID'";
-
-    if ($result = mysqli_query($conn, $sql)){
+  if ($result = mysqli_query($conn, $sql)){
 
     /* determine number of rows result set */
     $row_cnt = mysqli_num_rows($result);
@@ -52,9 +31,6 @@
     {
       echo $cost = $row['orderPrice'];
     }
-  }
-
-  
 
     
 
@@ -68,7 +44,7 @@
 
 ?>
 
-<!--
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +91,7 @@
 </head>
 <body>
   <div class="container container-fluid">
-  <!--<nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -126,7 +102,7 @@
           <a class="navbar-brand" href="#">Ivy Designs</a>
         </div>
 
-        <!--links for navbar on the left->
+        <!--links for navbar on the left-->
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
@@ -137,13 +113,13 @@
               <li><a href="couples.php">Couples</a></li>
             </ul>
 
-            <!--links for navbar on the right->
+            <!--links for navbar on the right-->
             <ul class="nav navbar-nav navbar-right">
               <li><a href="shoppingCart.php"><img src="../images/cart3.png">  <?php if($items>0){ echo "<span class='badge'> $items </span>";}?></a></li>
 
               <li><a title = "click to views your profile" href="#"><span class="glyphicon glyphicon-user"></span><span class="userloggedin"><strong> <?php echo $login_user;?></strong></span><span ></span></a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout<span></span></a></li>
-            </ul>-->
+            </ul>
           </div>
         </div>
       </nav>
@@ -151,15 +127,9 @@
       <br>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
 
       <legend style="text-align: center;">Pending Orders List</legend>
-      <form action="../php/shopperPayment.php" method="POST">
+      <form action="../php/mpesaInsert.php" method="POST">
         <fieldset>
         <legend style="text-align: left;">Order Payment procedure</legend>
       <div align="left">
@@ -176,7 +146,7 @@
         </ol> 
         <div class="form-group col-md-6 col-sm-6 col-xs-6">
             <label for="paymentCode">M-pesa confirmation code:</label>
-            <input type="text" class="form-control" id="paymentCode" name="paymentCode" required title="Please give enter the M-pesa confirmation code from your payment." autofocus required maxlength="10" minlength="10">
+            <input type="text" class="form-control" id="paymentCode" name="paymentCode" required title="Please give enter the M-pesa confirmation code from your payment." autofocus required maxlength="10" minlength="10" style="text-transform: uppercase;">
         </div>
       </div>
               
@@ -190,9 +160,6 @@
       </div>
         </fieldset>
       </form>
-      <?php if(isset($paySuccess)){echo $paySuccess;}
-        ?>
-
   </div>  
 
       <!-- Footer -->
