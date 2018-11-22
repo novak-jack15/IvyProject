@@ -1,5 +1,5 @@
 <?php
- require '../PHPMailer/PHPMailerAutoload.php';
+ require '../mailer/PHPMailerAutoload.php';
  session_start();
   //gives variable for creating the connection
   $servername = "localhost";
@@ -65,12 +65,12 @@
    		echo $shopPhone = $rowShop['shopperPhonenumber'];
    	}
 
-      $mailbody = "<br>Dear desFname $desSname, this is to notify you of your new cloth order from $shopFname $shopSname for the cloth under your collection called $cName for the price $cPrice. Kinldly complete this order. You may also contact $shopPhone using the phone number $shopPhone for any customizations on the cloth.<br>Regards<br>
+    $mailbody = "<br>Dear $desFname $desSname, this is to notify you of your new cloth order from $shopFname $shopSname for the cloth under your collection called $cName for the price $cPrice. Kinldly complete this order. You may also contact $shopPhone using the phone number $shopPhone for any customizations on the cloth.<br>Regards<br>
     Ivy Designs.";
 
    		$mail = new PHPMailer;
 
-		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+		$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 		$mail->isSMTP();                                      // Set mailer to use SMTP
 		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
@@ -81,7 +81,7 @@
 		$mail->Port = 587;                                    // TCP port to connect to
 
 		$mail->setFrom('ivydesigns20@gmail.com', 'Ivy Designs');
-		$mail->addAddress($desEmail);     // Add a recipient
+		$mail->addAddress('jobokello5@gmail.com');     // Add a recipient
 		//$mail->addReplyTo('info@example.com', 'Information');
 		//$mail->addCC('cc@example.com');
 		//$mail->addBCC('bcc@example.com');
@@ -98,8 +98,8 @@
 		    echo 'Message could not be sent.';
 		    echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-		    echo 'Message has been sent';
-		    //header("location: mailerworker.php");
+		    //echo 'Message has been sent';
+		    header('location: ../html/shoppingCart.php');
 		}
 	} else {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
