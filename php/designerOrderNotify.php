@@ -65,6 +65,9 @@
    		echo $shopPhone = $rowShop['shopperPhonenumber'];
    	}
 
+      $mailbody = "<br>Dear desFname $desSname, this is to notify you of your new cloth order from $shopFname $shopSname for the cloth under your collection called $cName for the price $cPrice. Kinldly complete this order. You may also contact $shopPhone using the phone number $shopPhone for any customizations on the cloth.<br>Regards<br>
+    Ivy Designs.";
+
    		$mail = new PHPMailer;
 
 		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -88,9 +91,8 @@
 		$mail->isHTML(true);                                  // Set email format to HTML
 
 		$mail->Subject = 'New Order Received';
-		$mail->Body    =  "<br>Dear desFname $desSname, this is to notify you of your new cloth order from $shopFname $shopSname for the cloth under your collection called $cName for the price $cPrice. Kinldly complete this order. You may also contact $shopPhone using the phone number $shopPhone for any customizations on the cloth.<br>Regards<br>
-		Ivy Designs.";
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		$mail->Body    =  $mailbody;
+		$mail->AltBody = strip_tags($mailbody);
 
 		if(!$mail->send()) {
 		    echo 'Message could not be sent.';
