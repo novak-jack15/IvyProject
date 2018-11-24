@@ -29,7 +29,7 @@
 
 			if (mysqli_query($conn, $sql)) {
 		    echo "update success!!!";
-		   	header('Location: designerOrderNotify.php');
+		   	header('Location: ../mailernew/paynotice.php');
 			} else {
 			    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 			}
