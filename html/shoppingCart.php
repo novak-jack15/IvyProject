@@ -14,7 +14,7 @@
   //items in shopping cart
   $items = '';
 
-  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' ORDER BY paymentStatus ASC";
+  $sql = "SELECT * FROM orders WHERE shopperID='$shopper' ORDER BY paymentStatus DESC";
 
   if ($result = mysqli_query($conn, $sql)){
 

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 09:29 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Host: localhost
+-- Generation Time: Nov 24, 2018 at 07:17 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -134,19 +136,28 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `clothID`, `clothName`, `clothDescription`, `orderPrice`, `shopperID`, `designerID`, `paymentCode`, `paymentStatus`, `designerStatus`, `trpAgentStatus`, `shopperStatus`) VALUES
-(1, 20, 'pia hii ni nomare', 'bro', 560, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
-(2, 17, 'ogaoo', 'cpouples', 2437, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
-(3, 19, 'nguo ya brown', 'hii nguo ni fire', 5000, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
-(4, 22, 'crew regalia', 'kjfkehwdgsy', 6589, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
-(5, 2, 'dashiki', 'for the couples', 10000, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
-(6, 12, 'Jack Johnson', 'f gywgfvghgefve', 10000, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(1, 20, 'pia hii ni nomare', 'bro', 560, 11, 4, 'zerdtfy ub', 'Paid', 'pending', 'pending', 'Confirmed'),
+(2, 17, 'ogaoo', 'cpouples', 2437, 11, 4, 'vygifbdhcj', 'Paid', 'pending', 'pending', 'Confirmed'),
+(3, 19, 'nguo ya brown', 'hii nguo ni fire', 5000, 11, 4, 'ftyefv45dr', 'Paid', 'pending', 'pending', 'pending'),
+(4, 22, 'crew regalia', 'kjfkehwdgsy', 6589, 11, 4, 'bryvfggyed', 'Paid', 'pending', 'pending', 'pending'),
+(5, 2, 'dashiki', 'for the couples', 10000, 11, 4, 'trfyghjbkf', 'Paid', 'pending', 'pending', 'pending'),
+(6, 12, 'Jack Johnson', 'f gywgfvghgefve', 10000, 11, 4, 'rdctfgvhjk', 'Paid', 'pending', 'pending', 'pending'),
 (7, 2, 'dashiki', 'for the couples', 10000, 9, 4, 'efvdgsbhjk', 'Paid', 'pending', 'pending', 'Confirmed'),
 (8, 16, 'cr ftg', 'gfvcg cdc', 200, 9, 4, 'gebskdjfds', 'unpaid', 'pending', 'pending', 'pending'),
 (9, 20, 'pia hii ni nomare', 'bro', 560, 9, 4, '2345678990', 'unpaid', 'pending', 'pending', 'pending'),
 (10, 22, 'crew regalia', 'kjfkehwdgsy', 6589, 9, 4, 'itrwfgyeuw', 'unpaid', 'pending', 'pending', 'pending'),
 (11, 25, 'Micheal', 'helllloooo', 20000, 9, 7, 'bciudsytjf', 'Paid', 'pending', 'pending', 'pending'),
 (12, 19, 'nguo ya brown', 'hii nguo ni fire', 5000, 9, 4, 'hbejgfiuew', 'Paid', 'pending', 'pending', 'pending'),
-(13, 23, 'purity', 'hellllo', 12000, 9, 5, '09uoit7r6y', 'Paid', 'pending', 'pending', 'pending');
+(13, 23, 'purity', 'hellllo', 12000, 9, 5, '09uoit7r6y', 'Paid', 'pending', 'pending', 'pending'),
+(14, 25, 'Micheal', 'helllloooo', 20000, 11, 7, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(15, 15, 'itdwgsyd', 'jeby f', 3785, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(16, 18, 'man25', 'urban', 10000, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(17, 23, 'purity', 'hellllo', 12000, 11, 5, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(18, 24, 'sylvia', 'hello', 12000, 11, 6, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(19, 25, 'Micheal', 'helllloooo', 20000, 11, 7, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(20, 22, 'crew regalia', 'kjfkehwdgsy', 6589, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(21, 20, 'pia hii ni nomare', 'bro', 560, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending'),
+(22, 10, 'gehbd', 'kjihug', 10000, 11, 4, 'missing', 'unpaid', 'pending', 'pending', 'pending');
 
 -- --------------------------------------------------------
 
@@ -294,31 +305,38 @@ ALTER TABLE `trpagentinfo`
 --
 ALTER TABLE `clothesinfo`
   MODIFY `clothID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT for table `designerinfo`
 --
 ALTER TABLE `designerinfo`
   MODIFY `designerID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `dispatch`
 --
 ALTER TABLE `dispatch`
   MODIFY `dispatchID` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `orderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT for table `shopperinfo`
 --
 ALTER TABLE `shopperinfo`
   MODIFY `shopperID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `trpagentinfo`
 --
 ALTER TABLE `trpagentinfo`
   MODIFY `trpAgentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
