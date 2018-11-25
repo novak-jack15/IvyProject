@@ -66,7 +66,7 @@
         <fieldset>
           <legend style="text-align: center;">Designer Cloth Upload</legend>
           <div class="form-group col-sm-4 col-md-4">
-          <label for="name">Name:</label>
+          <label for="name">Cloth Name:</label>
           <input type="text" class="form-control" id="name" name="name">
         </div>
 
