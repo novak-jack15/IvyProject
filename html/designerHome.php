@@ -2,8 +2,8 @@
 	session_start();
 	echo 'time to upload goods';
 
-	echo $_SESSION['designerID'];
-    $login_user = $_SESSION['designerUsername'];
+	echo $desID = $_SESSION['designerID'];
+  echo $login_user = $_SESSION['designerUsername'];
 
 ?>
 
@@ -22,7 +22,7 @@
     <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
       <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -61,18 +61,62 @@
       <br>
       <br>
 
-      <div class="container">
-<h1 class="hello">Hello, <strong><?php echo $login_user;?>!</strong></h1>
-<p>The Fundis family woul like to thank you for effort in service to our esteemed clients<br>Through your service have been able to achieve the following.<br></p>
-<ul>
-	<li><img src="../icons/customer_32.png"> Number of customers served was:<span class="badge">5</span> </li>
-	<li><img src="../icons/success_32.png">Number of successful order deliveries was:<span class="badge">10</span></li>
-	<li><img src="../icons/receive_cash_32.png">Number of payment made to your account are:<span class="badge">16</span> </li>
-	<li><img src="../icons/refund_32.png">However due unavoidable circumstances we had to refund <span class="badge">4s</span> of our clients assigned to you</li>
-</ul>
-<br><p>Kindly check into your unconfirmed orders and confirm them if the client has been served.<br>If your are facing any challenges kindly feel free to cancel any orders and contact us afterwards so that we might know how to be of help the next time such an occurrence takes place.</p>
+    <div class="container container-fluid">
+        <h2 class="hello">Welocome back, <strong style="text-transform: capitalize;"><?php echo $login_user;?>!</strong></h2s>
+        <h3> Below is an overview of your contribution to the Ivy Designs Community.<br></h3>
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading main-color-bg">
+              <h3 align="center" class="panel-title">Designer Work Overview</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-3">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <?php echo 4 ;?></h2>
+                  <h4>Pending Orders</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>  <?php echo 7;?></h2>
+                  <h4>Complete Orders</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  203</h2>
+                  <h4>Stock</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  <?php echo 21;?></h2>
+                  <h4>Total Orders</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>  <?php echo 4;?></h2>
+                  <h4>Total Earnings</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="well dash-box">
+                  <h2><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>  <?php echo 10;?></h2>
+                  <h4>Refunds Given</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-</div>
+        <div style="text-align: center;" class="col-md-12 col-sm-12">
+          <br><h4>Kindly check into your unconfirmed orders and confirm them if the client has been served.<br>If your are facing any challenges kindly feel free to cancel any orders and contact us afterwards so that we might know how to be of help the next time such an occurrence takes place.</h4>
+        </div>
+
+        
+      </div>    
 
 <footer class=" site-footer navbar navbar-fixed-bottom navbar-inverse container-fluid">
     <div id="theContent">
