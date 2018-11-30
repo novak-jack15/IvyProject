@@ -5,6 +5,60 @@
 	echo $desID = $_SESSION['designerID'];
   echo $login_user = $_SESSION['designerUsername'];
 
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ivyproject";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  if ($result = mysqli_query($conn, "SELECT * FROM orders WHERE designerID = $desID AND designerStatus = 'pending'")) {
+
+    /* determine number of rows result set */
+    $row_pending = mysqli_num_rows($result);
+
+    //printf("Result set has %d rows.\n", $row_workers);
+
+    /* close result set */
+    mysqli_free_result($result);
+}
+
+if ($result = mysqli_query($conn, "SELECT * FROM orders WHERE designerID = $desID AND designerStatus = 'confirmed'")) {
+
+    /* determine number of rows result set */
+    $row_complete = mysqli_num_rows($result);
+
+    //printf("Result set has %d rows.\n", $row_workers);
+
+    /* close result set */
+    mysqli_free_result($result);
+}
+
+if ($result = mysqli_query($conn, "SELECT * FROM orders WHERE designerID = $desID ")) {
+
+    /* determine number of rows result set */
+    $row_total = mysqli_num_rows($result);
+
+    //printf("Result set has %d rows.\n", $row_workers);
+
+    /* close result set */
+    mysqli_free_result($result);
+}
+
+if ($result = mysqli_query($conn, "SELECT * FROM clothesInfo WHERE designerID = $desID")) {
+
+    /* determine number of rows result set */
+    $row_stock = mysqli_num_rows($result);
+
+    //printf("Result set has %d rows.\n", $row_workers);
+
+    /* close result set */
+    mysqli_free_result($result);
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +105,7 @@
 
             <!--links for navbar on the right-->
             <ul class="nav navbar-nav navbar-right">
-              <li><a title = "click to views your profile" href="#"><span class="glyphicon glyphicon-user"></span><span class="userloggedin"><strong> <?php echo $login_user;?></strong></span><span ></span></a></li>
+              <li><a title = "click to views your profile" href="#"><span class="glyphicon glyphicon-user"></span><span class="userloggedin"><strong style="text-transform: capitalize;"> <?php echo $login_user;?></strong></span></a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout<span></span></a></li>
             </ul>
           </div>
@@ -62,8 +116,10 @@
       <br>
 
     <div class="container container-fluid">
-        <h2 class="hello">Welocome back, <strong style="text-transform: capitalize;"><?php echo $login_user;?>!</strong></h2s>
-        <h3> Below is an overview of your contribution to the Ivy Designs Community.<br></h3>
+        <div style="text-align: center;">
+          <h2 class="hello">Welocome back, <strong style="text-transform: capitalize;"><?php echo $login_user;?>!</strong></h2s>
+          <h3> Below is an overview of your contribution to the Ivy Designs Community.<br></h3>
+         </div> 
         
         <div class="col-md-12">
           <div class="panel panel-default">
@@ -71,27 +127,27 @@
               <h3 align="center" class="panel-title">Designer Work Overview</h3>
             </div>
             <div class="panel-body">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="well dash-box">
-                  <h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <?php echo 4 ;?></h2>
+                  <h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  <?php echo $row_pending ;?></h2>
                   <h4>Pending Orders</h4>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="well dash-box">
-                  <h2><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>  <?php echo 7;?></h2>
+                  <h2><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>  <?php echo $row_complete;?></h2>
                   <h4>Complete Orders</h4>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="well dash-box">
-                  <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  203</h2>
+                  <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  <?php echo $row_stock ?></h2>
                   <h4>Stock</h4>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="well dash-box">
-                  <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  <?php echo 21;?></h2>
+                  <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  <?php echo $row_total;?></h2>
                   <h4>Total Orders</h4>
                 </div>
               </div>
@@ -107,7 +163,7 @@
                   <h4>Refunds Given</h4>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
 

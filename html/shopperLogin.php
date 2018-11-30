@@ -125,7 +125,7 @@
         </div>
 
         <div class="col-12 forgot">
-          <a href="#">Forgot Password?</a>
+          <a href="../php/passwordReset.php">Forgot Password?</a>
         </div>
 
       </div> 
