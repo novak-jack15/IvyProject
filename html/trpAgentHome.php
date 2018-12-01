@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Shopping Page</title>
+    <title>Agent Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet">
