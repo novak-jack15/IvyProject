@@ -115,7 +115,7 @@ else
         echo "Error: " . $sql4 . "<br>" . mysqli_error($conn);
     }
 
-    $sql5 = "INSERT INTO dispatch (clothName, trpfee, shopperID, trpAgentID) VALUES ('$cName', '$cFee', '$shopperID', '$agentID')";
+    $sql5 = "INSERT INTO dispatch (orderID, clothName, trpfee, shopperID, trpAgentID) VALUES ('$orderID','$cName', '$cFee', '$shopperID', '$agentID')";
 
     if (mysqli_query($conn, $sql5)) {
         echo "New record created successfully";
@@ -136,7 +136,7 @@ $mail = new PHPMailer(true);                              // Passing `true` enab
 try 
 {
     //Server settings
-    $mail->SMTPDebug = 1;                                 // Enable verbose debug output
+    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -173,7 +173,7 @@ try
         try 
         {
             //Server settings
-            $mail->SMTPDebug = 1;                                 // Enable verbose debug output
+            $mail->SMTPDebug = 0;                                 // Enable verbose debug output
             $mail->isSMTP();                                      // Set mailer to use SMTP
             $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -210,7 +210,7 @@ try
                 try 
                 {
                     //Server settings
-                    $mail->SMTPDebug = 1;                                 // Enable verbose debug output
+                    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
                     $mail->isSMTP();                                      // Set mailer to use SMTP
                     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
                     $mail->SMTPAuth = true;                               // Enable SMTP authentication

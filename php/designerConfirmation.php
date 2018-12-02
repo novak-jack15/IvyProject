@@ -72,6 +72,7 @@
 		    	echo $agentEmail = $row3['trpAgentEmail'];
 		    	echo $agentCounty = $row3['trpAgentCounty'];
 		    	echo $agentConstituency = $row3['trpAgentConstituency'];
+		    	echo $jobCount = $row3['jobCount'];
 
 		   		//header('Location: ../html/shoppingCart.php');
 			} 
@@ -88,11 +89,26 @@
 			if (mysqli_query($conn, $sql4)) 
 			{
 		    	echo "update success!!!";
-		   		header('Location: ../mailernew/designerOrderComplete.php');
+		   		//header('Location: ../mailernew/designerOrderComplete.php');
 			} 
 			else 
 			{
 			    echo "Error: " . $sql4 . "<br>" . mysqli_error($conn);
+			}
+
+			//increase job count
+			$sql5 = "UPDATE trpagentinfo SET jobCount = ('$jobCount' + 1) WHERE trpAgentID ='$agentID'";
+
+		   	$result5 = mysqli_query($conn,$sql5);
+
+			if (mysqli_query($conn, $sql5)) 
+			{
+		    	echo "update success!!!";
+		   		header('Location: ../mailernew/designerOrderComplete.php');
+			} 
+			else 
+			{
+			    echo "Error: " . $sql5 . "<br>" . mysqli_error($conn);
 			}
 
 		   	//header('Location: ../html/shoppingCart.php');

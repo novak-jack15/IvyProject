@@ -18,6 +18,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    #map{ 
+      width: 70%; 
+      height: 380px;
+      border: 1px solid green;
+    }
+  </style>
 </head>
 <body>
   <div class="container container-fluid">
@@ -424,6 +432,27 @@
 
     <div class="clearfix"></div>
 
+    <p class="col-sm-6 col-md-6s">
+      <strong style="text-align: center;">Please pinpoint your location on the map for easy navigation to your premises</strong>
+    </p>
+    <div id="map"></div>
+    <br>
+    <br>
+    <div class="form-group col-sm-6 col-xs-6">
+         <label for="lat">latitude:</label>
+         <input type="text" id="lat" readonly="yes" name="latitude" class="form-control"><br><br>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" readonly="yes" name="longitude" class="form-control">
+    </div>
+    <br>
+    <br>
+
+
+
+    <div class="clearfix"></div>
+
     <div class="text-center">
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </div>
@@ -432,6 +461,10 @@
 
     
 </form>
+<script type="text/javascript" src="../javascript/map.js"></script>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiBRKFRQvYcetiPIotdfje3IVhQRIHcOc" type="text/javascript"></script>
+<script type="text/javascript" src="map.js"></script>
+
 </body>
 </html>
