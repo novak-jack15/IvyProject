@@ -66,6 +66,8 @@ else
         echo $sSname = $row2['shopperSname'];
         echo $sEmail = $row2['shopperEmail'];
         echo $sPhoneNumber = $row2['shopperPhonenumber'];
+        echo $sLongitude = $row2['longitude'];
+        echo $sLatitude = $row2['latitude'];
 
         //header('Location: ../html/shoppingCart.php');
     } 

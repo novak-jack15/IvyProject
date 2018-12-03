@@ -97,7 +97,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="trpAgentdispatch.php">Dispatch dispatch</a></li>
+              <li><a href="trpAgentOrders.php">Dispatch</a></li>
             </ul>
 
             <!--links for navbar on the right-->

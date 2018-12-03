@@ -47,20 +47,30 @@ if (isset($_POST['county']))
 
 if (isset($_POST['constituency'])) 
 { 
-$shopperConstituency = trim($_POST["constituency"]);
+	$shopperConstituency = trim($_POST["constituency"]);
 } 
+
+if (isset($_POST['latitude'])) 
+{ 
+	$latitude = trim($_POST["latitude"]);
+}
+
+if (isset($_POST['longitude'])) 
+{ 
+	$longitude = trim($_POST["longitude"]);
+}
 
 if (isset($_POST['password'])) 
 { 
 	$shopperPassword = md5($_POST["password"]);
 } 
 
-$sql = "INSERT INTO shopperinfo (shopperfName, shoppersName,shopperusername, shopperemail, shopperPhonenumber, shopperCounty, shopperConstituency, shopperPassword)
-VALUES ('$shopperfName', '$shoppersName', '$shopperusername', '$shopperemail', '$shopperPhonenumber', '$shopperCounty', '$shopperConstituency', '$shopperPassword')";
+$sql = "INSERT INTO shopperinfo (shopperfName, shoppersName,shopperusername, shopperemail, shopperPhonenumber, shopperCounty, shopperConstituency, latitude, longitude, shopperPassword)
+VALUES ('$shopperfName', '$shoppersName', '$shopperusername', '$shopperemail', '$shopperPhonenumber', '$shopperCounty', '$shopperConstituency', $latitude, $longitude, '$shopperPassword')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
-    header('Location: ../html/shopperSuccess.html');
+    //header('Location: ../html/shopperSuccess.html');
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

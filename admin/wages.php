@@ -114,7 +114,7 @@
           <!--main area-->
           <div class="col-md-12">
 
-          
+    
 
           <div class="panel panel-default">
             <div class="panel-heading main-color-bg">
@@ -127,41 +127,46 @@
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Dispatch Number</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Shipping Fee</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Order Number</th>
                     <th style="text-align: center;" colspan="2 scope="col">Shopper</th>
-                    <th scope="col">Delivery Status</th>
-                    <th scope="col">Decision Status</th>
+                    <th style="text-align: center;" colspan="2 scope="col">Shopper</th>
+                    <th scope="col">Designer Payment</th>
+                    <th scope="col">Transporter Payment</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                    $sql1 = "SELECT * FROM dispatch";
+                    $sql1 = "SELECT * FROM wages";
 
                     $result1 = mysqli_query($conn,$sql1);
 
                     while($row = mysqli_fetch_array($result1)) {     
                       echo "<tr>";
-                      echo "<td>".$row['dispatchID']."</td>";
-                      echo "<td>".$row['clothName']."</td>";
-                      echo "<td>Ksh. ".$row['trpFee']."</td>";
+                      echo "<td>".$row['wageID']."</td>";
+                      echo "<td>".$row['orderID']."</td>";
 
-                      $shopperID = $row['shopperID'];
-
-                      $sql2 = "SELECT shopperFname, shopperSname FROM shopperinfo WHERE shopperID = '$shopperID'";
-
-                      $result = mysqli_query($conn,$sql2);
-
-                      while($row3 = mysqli_fetch_array($result)) {
-                        echo "<td>".$row3['shopperFname']."</td>";
-                     
-                        echo "<td>".$row3['shopperSname']."</td>";
+                      $designerID = $row['designerID'];
+                      $sql2 = "SELECT designerFname, designerSname FROM designerinfo WHERE designerID = '$designerID'";
+                      $result2 = mysqli_query($conn,$sql2);
+                      while($row2 = mysqli_fetch_array($result2)) {
+                        echo "<td>".$row2['designerFname']."</td>";
+                        echo "<td>".$row2['designerSname']."</td>";
                       }
 
-                      echo "<td>".$row['deliveryStatus']."</td>";       
-                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentConfirmation.php?id=$row[dispatchID]\">Edit</a></button> 
-                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentCancellation.php?id=$row[dispatchID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
+                      $trpAgentID = $row['trpAgentID'];
+                      $sql3 = "SELECT trpAgentFname, trpAgentSname FROM trpagentinfo WHERE trpAgentID = '$trpAgentID'";
+                      $result3 = mysqli_query($conn,$sql3);
+                      while($row3 = mysqli_fetch_array($result3)) {
+                        echo "<td>".$row3['trpAgentFname']."</td>";
+                        echo "<td>".$row3['trpAgentSname']."</td>";
+                      }
+ 
+                      echo "<td>".$row['trpAgentWage']."</td>";
+                      echo "<td>".$row['designerWage']."</td>";      
+                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentConfirmation.php?id=$row[wageID]\">Edit</a></button> 
+                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentCancellation.php?id=$row[wageID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
                       echo "</tr>";   
                     }
                   ?>

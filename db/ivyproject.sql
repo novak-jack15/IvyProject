@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 08:12 AM
+-- Generation Time: Dec 03, 2018 at 11:31 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -34,7 +34,7 @@ CREATE TABLE `clothesinfo` (
   `clothPrice` int(10) NOT NULL,
   `clothCategory` varchar(40) NOT NULL,
   `image` varchar(10000) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clothesinfo`
@@ -43,11 +43,11 @@ CREATE TABLE `clothesinfo` (
 INSERT INTO `clothesinfo` (`clothID`, `designerID`, `clothName`, `clothDescription`, `clothPrice`, `clothCategory`, `image`) VALUES
 (1, 4, 'dashiki', 'for the couples', 10000, 'couples', 'couple (10).jpg'),
 (2, 4, 'dashiki', 'for the couples', 10000, 'couples', 'couple (10).jpg'),
-(12, 4, 'Jack Johnson', 'f gywgfvghgefve', 10000, 'men', 'couple (10).jpg'),
-(11, 4, 'uhygf', 'byughv', 12345, 'men', 'couple (10).jpg'),
-(10, 4, 'gehbd', 'kjihug', 10000, 'men', 'couple (10).jpg'),
-(9, 4, 'dcbsu', 'ds hv vdsv', 10000, 'men', 'couple (10).jpg'),
 (8, 4, 'dashiki', 'fsacv', 10000, 'men', 'couple (10).jpg'),
+(9, 4, 'dcbsu', 'ds hv vdsv', 10000, 'men', 'couple (10).jpg'),
+(10, 4, 'gehbd', 'kjihug', 10000, 'men', 'couple (10).jpg'),
+(11, 4, 'uhygf', 'byughv', 12345, 'men', 'couple (10).jpg'),
+(12, 4, 'Jack Johnson', 'f gywgfvghgefve', 10000, 'men', 'couple (10).jpg'),
 (13, 4, 'dashiki', 'youte', 10000, 'men', 'couple (10).jpg'),
 (14, 4, 'Royal Kitenge', 'gfyugfwdsx', 10000, 'men', 'couple (10).jpg'),
 (15, 4, 'itdwgsyd', 'jeby f', 3785, 'men', 'couple (10).jpg'),
@@ -83,7 +83,7 @@ CREATE TABLE `designerinfo` (
   `designerConstituency` varchar(40) NOT NULL,
   `passwordReset` int(10) DEFAULT NULL,
   `designerPassword` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `designerinfo`
@@ -112,7 +112,7 @@ CREATE TABLE `dispatch` (
   `shopperLattitude` varchar(50) DEFAULT NULL,
   `shopperLongitude` varchar(50) DEFAULT NULL,
   `deliveryStatus` varchar(20) NOT NULL DEFAULT 'pending'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dispatch`
@@ -142,7 +142,7 @@ CREATE TABLE `orders` (
   `designerStatus` varchar(20) NOT NULL DEFAULT 'pending',
   `trpAgentStatus` varchar(20) NOT NULL DEFAULT 'pending',
   `shopperStatus` varchar(20) NOT NULL DEFAULT 'pending'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
@@ -190,7 +190,7 @@ CREATE TABLE `refunds` (
   `refundAmount` int(10) NOT NULL,
   `refundStatus` varchar(20) NOT NULL,
   `reason` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -211,7 +211,7 @@ CREATE TABLE `shopperinfo` (
   `latitude` varchar(126) DEFAULT 'Empty',
   `passwordReset` int(10) DEFAULT '0',
   `shopperPassword` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `shopperinfo`
@@ -228,7 +228,8 @@ INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopper
 (16, 'mark', 'nyang', 'mac', 'jobokello5@gmail.com', '0745673456', 'mombasa', 'kakamega', NULL, NULL, NULL, '25d55ad283aa400af464c76d713c07ad'),
 (17, 'mark', 'nyang', 'mac', 'jobokello5@gmail.com', '0745673456', 'mombasa', 'kakamega', NULL, NULL, NULL, '25d55ad283aa400af464c76d713c07ad'),
 (18, 'sylvia', 'yvonne', 'ivy', 'sylviayvonne65@gmail.com', '', 'mombasa', 'kakamega', NULL, NULL, NULL, '25f9e794323b453885f5181f1b624d0b'),
-(19, 'byron', 'Ochieng', 'byron', 'byron@yahoo.com', '012176888', 'nairobi', 'Embakasi', NULL, NULL, NULL, '8720070ac8f94bbbff5a347eed656925');
+(19, 'byron', 'Ochieng', 'byron', 'byron@yahoo.com', '012176888', 'nairobi', 'Embakasi', NULL, NULL, NULL, '8720070ac8f94bbbff5a347eed656925'),
+(20, 'Byron', 'okello', 'okello', 'jobokello5@gmail.com', '', 'Nairobi', 'Embakasi', '36.0076904296875', '-1.14543079216601', 0, 'e57ce41e0426a259ae4f7470e88c06e9');
 
 -- --------------------------------------------------------
 
@@ -248,7 +249,7 @@ CREATE TABLE `trpagentinfo` (
   `jobCount` int(10) DEFAULT '0',
   `passwordReset` int(10) DEFAULT NULL,
   `trpAgentPassword` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `trpagentinfo`
@@ -272,7 +273,7 @@ CREATE TABLE `wages` (
   `trpAgentWage` int(11) NOT NULL,
   `designerWage` int(11) NOT NULL,
   `wageStatus` varchar(20) NOT NULL DEFAULT 'pending'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wages`
@@ -304,49 +305,74 @@ INSERT INTO `wages` (`wageID`, `orderID`, `designerID`, `trpAgentID`, `trpAgentW
 -- Indexes for table `clothesinfo`
 --
 ALTER TABLE `clothesinfo`
-  ADD PRIMARY KEY (`clothID`);
+  ADD PRIMARY KEY (`clothID`),
+  ADD KEY `clothID` (`clothID`),
+  ADD KEY `clothID_2` (`clothID`),
+  ADD KEY `clothID_3` (`clothID`,`designerID`),
+  ADD KEY `designerID` (`designerID`);
 
 --
 -- Indexes for table `designerinfo`
 --
 ALTER TABLE `designerinfo`
-  ADD PRIMARY KEY (`designerID`);
+  ADD PRIMARY KEY (`designerID`),
+  ADD KEY `designerID` (`designerID`),
+  ADD KEY `designerID_2` (`designerID`);
 
 --
 -- Indexes for table `dispatch`
 --
 ALTER TABLE `dispatch`
-  ADD PRIMARY KEY (`dispatchID`);
+  ADD PRIMARY KEY (`dispatchID`),
+  ADD KEY `dispatchID` (`dispatchID`),
+  ADD KEY `dispatchID_2` (`dispatchID`,`orderID`,`shopperID`,`trpAgentID`),
+  ADD KEY `shopperID` (`shopperID`),
+  ADD KEY `trpAgentID` (`trpAgentID`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`orderID`);
+  ADD PRIMARY KEY (`orderID`),
+  ADD KEY `orderID` (`orderID`),
+  ADD KEY `orderID_2` (`orderID`,`clothID`,`shopperID`,`designerID`,`trpAgentID`),
+  ADD KEY `shopperID` (`shopperID`),
+  ADD KEY `designerID` (`designerID`),
+  ADD KEY `clothID` (`clothID`);
 
 --
 -- Indexes for table `refunds`
 --
 ALTER TABLE `refunds`
-  ADD PRIMARY KEY (`refundID`);
+  ADD PRIMARY KEY (`refundID`),
+  ADD KEY `refundID` (`refundID`),
+  ADD KEY `refundID_2` (`refundID`,`orderID`,`shopperID`),
+  ADD KEY `shopperID` (`shopperID`);
 
 --
 -- Indexes for table `shopperinfo`
 --
 ALTER TABLE `shopperinfo`
-  ADD PRIMARY KEY (`shopperID`);
+  ADD PRIMARY KEY (`shopperID`),
+  ADD KEY `shopperID` (`shopperID`);
 
 --
 -- Indexes for table `trpagentinfo`
 --
 ALTER TABLE `trpagentinfo`
-  ADD PRIMARY KEY (`trpAgentID`);
+  ADD PRIMARY KEY (`trpAgentID`),
+  ADD KEY `trpAgentID` (`trpAgentID`);
 
 --
 -- Indexes for table `wages`
 --
 ALTER TABLE `wages`
-  ADD PRIMARY KEY (`wageID`);
+  ADD PRIMARY KEY (`wageID`),
+  ADD KEY `wageID` (`wageID`),
+  ADD KEY `wageID_2` (`wageID`),
+  ADD KEY `wageID_3` (`wageID`,`orderID`,`designerID`,`trpAgentID`),
+  ADD KEY `designerID` (`designerID`),
+  ADD KEY `trpAgentID` (`trpAgentID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -376,7 +402,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `shopperinfo`
 --
 ALTER TABLE `shopperinfo`
-  MODIFY `shopperID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `shopperID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `trpagentinfo`
 --
@@ -387,6 +413,44 @@ ALTER TABLE `trpagentinfo`
 --
 ALTER TABLE `wages`
   MODIFY `wageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `clothesinfo`
+--
+ALTER TABLE `clothesinfo`
+  ADD CONSTRAINT `clothesinfo_ibfk_1` FOREIGN KEY (`designerID`) REFERENCES `designerinfo` (`designerID`);
+
+--
+-- Constraints for table `dispatch`
+--
+ALTER TABLE `dispatch`
+  ADD CONSTRAINT `dispatch_ibfk_1` FOREIGN KEY (`shopperID`) REFERENCES `shopperinfo` (`shopperID`),
+  ADD CONSTRAINT `dispatch_ibfk_2` FOREIGN KEY (`trpAgentID`) REFERENCES `trpagentinfo` (`trpAgentID`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`shopperID`) REFERENCES `shopperinfo` (`shopperID`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`designerID`) REFERENCES `designerinfo` (`designerID`),
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`clothID`) REFERENCES `clothesinfo` (`clothID`);
+
+--
+-- Constraints for table `refunds`
+--
+ALTER TABLE `refunds`
+  ADD CONSTRAINT `refunds_ibfk_1` FOREIGN KEY (`shopperID`) REFERENCES `shopperinfo` (`shopperID`);
+
+--
+-- Constraints for table `wages`
+--
+ALTER TABLE `wages`
+  ADD CONSTRAINT `wages_ibfk_1` FOREIGN KEY (`designerID`) REFERENCES `designerinfo` (`designerID`),
+  ADD CONSTRAINT `wages_ibfk_2` FOREIGN KEY (`trpAgentID`) REFERENCES `trpagentinfo` (`trpAgentID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
