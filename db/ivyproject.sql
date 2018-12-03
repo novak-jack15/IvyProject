@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2018 at 06:54 AM
+-- Generation Time: Dec 03, 2018 at 08:12 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -207,9 +207,9 @@ CREATE TABLE `shopperinfo` (
   `shopperPhonenumber` varchar(15) NOT NULL,
   `shopperCounty` varchar(40) NOT NULL,
   `shopperConstituency` varchar(40) NOT NULL,
-  `longutude` varchar(126) DEFAULT NULL,
-  `latitude` varchar(126) DEFAULT NULL,
-  `passwordReset` int(10) DEFAULT NULL,
+  `longitude` varchar(126) DEFAULT 'Empty',
+  `latitude` varchar(126) DEFAULT 'Empty',
+  `passwordReset` int(10) DEFAULT '0',
   `shopperPassword` varchar(40) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -217,7 +217,7 @@ CREATE TABLE `shopperinfo` (
 -- Dumping data for table `shopperinfo`
 --
 
-INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopperUsername`, `shopperEmail`, `shopperPhonenumber`, `shopperCounty`, `shopperConstituency`, `longutude`, `latitude`, `passwordReset`, `shopperPassword`) VALUES
+INSERT INTO `shopperinfo` (`shopperID`, `shopperFname`, `shopperSname`, `shopperUsername`, `shopperEmail`, `shopperPhonenumber`, `shopperCounty`, `shopperConstituency`, `longitude`, `latitude`, `passwordReset`, `shopperPassword`) VALUES
 (9, 'job', 'okello', 'jobson', 'jobokello5@gmail.com', '0728633625', 'nairobi', 'kibra', NULL, NULL, NULL, '685b142ec68c96fd2d898b11da966670'),
 (10, 'yvonne', 'sylvia', 'yvette', 'sylviayvonne65@gmail.com', '0728633625', 'nairobi', 'kibra', NULL, NULL, NULL, 'efb02011d94efa80ae173716e51bad47'),
 (11, 'dedan', 'sewe', 'sewe', 'sewe@yahoo.com', '2243545231', 'Kisumu', 'Kombewa', NULL, NULL, NULL, 'ad8b2bfedc34541070953461e62f533a'),
