@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	echo 'time to shop';
 	$shopper = $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername'];
 
@@ -20,7 +19,7 @@
   if ($result = mysqli_query($conn, $sql)){
 
     /* determine number of rows result set */
-    echo $row_cnt = mysqli_num_rows($result);
+    $row_cnt = mysqli_num_rows($result);
 
     $items = $row_cnt;
 
@@ -106,6 +105,8 @@
         </div>
       </nav>
 
+      <br>
+      <br>
       <br>
       <br>
 
