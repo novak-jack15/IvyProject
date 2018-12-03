@@ -114,7 +114,7 @@
 
     <div class="container container-fluid">
       <div style="text-align: center;">
-        <h2 class="hello">Welocome back, <strong style="text-transform: capitalize;"><?php echo $login_user;?>!</strong></h2>
+        <h2 class="hello">Welcome back, <strong style="text-transform: capitalize;"><?php echo $login_user;?>!</strong></h2>
         <h3> Below is an overview of your contribution to the Ivy Designs Community.<br></h3>
       </div>
         

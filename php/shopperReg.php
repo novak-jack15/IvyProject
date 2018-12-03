@@ -27,7 +27,7 @@ if (isset($_POST['sName']))
 
 if (isset($_POST['username'])) 
 { 
-$shopperusername = trim($_POST["username"]); 
+	$shopperusername = trim($_POST["username"]); 
 } 
 
 if (isset($_POST['email'])) 
@@ -70,7 +70,7 @@ VALUES ('$shopperfName', '$shoppersName', '$shopperusername', '$shopperemail', '
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
-    //header('Location: ../html/shopperSuccess.html');
+    header('Location: ../html/shopperSuccess.html');
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
