@@ -131,7 +131,7 @@ else
 
 
 $messageToShopper = "Dear $sFname sSname,<br>This is to notify you that your Cloth order number: $orderID has been completed by $dFname $dSname and is awaiting shipping by $tFname $tSname. Upon receipt your Kindly required to log in to your account and confirm that the order was delivered successfully.<br>Kind Regards<br>Ivy Designs.";
-$messageToAgent = "Dear $tFname $tSname,<br>This is to notify you that you have received a new deispatch order number: $orderID for $sFname $sSname. Upon delivery your Kindly required to log in to your account and confirm that the order was delivered successfully.<br>Kind Regards<br>Ivy Designs.";
+$messageToAgent = "Dear $tFname $tSname,<br>This is to notify you that you have received a new deispatch order number: $orderID for $sFname $sSname. Upon delivery your Kindly required to log in to your account and confirm that the order was delivered successfully<br><br>You can contact him/her on $sPhoneNumber and also navigate to his premises using the following link:<br>https://www.google.com/maps/dir/?api=1&destination=$sLatitude,$sLongitude<br>.<br>Kind Regards<br>Ivy Designs.";
 $messageToDesigner = "Dear $dFname $dSname,This is to notify you that you order completion has been received and acknowledged. You paiment is still pending but will be paid promptly upon the delivery of the cloth to the shopper. Kindly bear with us<br>Kind Regards<br>Ivy Designs." ;
 
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
