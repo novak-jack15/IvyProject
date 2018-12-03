@@ -34,7 +34,7 @@ try {
     //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
-    $bodyofemail = 'Use The Following to reset your password <b>i!</b>';
+    $bodyofemail = 'Use The Following to reset your password <b>$token!</b>';
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
