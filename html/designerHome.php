@@ -121,7 +121,7 @@ if ($result = mysqli_query($conn, "SELECT * FROM clothesInfo WHERE designerID = 
           <h3> Below is an overview of your contribution to the Ivy Designs Community.<br></h3>
          </div> 
         
-        <div class="col-md-12">
+        <div class="col-md-9">
           <div class="panel panel-default">
             <div class="panel-heading main-color-bg">
               <h3 align="center" class="panel-title">Designer Work Overview</h3>

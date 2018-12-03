@@ -131,7 +131,7 @@
         <td>Decision Status</td>
       </tr>
       <?php 
-        $sql1 = "SELECT * FROM orders WHERE shopperID = '$shopper'";
+        $sql1 = "SELECT * FROM orders";
 
         $result1 = mysqli_query($conn,$sql1);
 
