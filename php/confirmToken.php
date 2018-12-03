@@ -1,7 +1,7 @@
 <?php
 	session_start();
-  $email = $_SESSION['email'];
-  $token = $_SESSION['token'];
+  echo $email = $_SESSION['email'];
+  echo $token = $_SESSION['token'];
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -24,7 +24,7 @@
           /* determine number of rows result set */
           $row_cnt = mysqli_num_rows($result);
 
-          if($row_cnt == 1){
+          if($row_cnt > 0){
             header("location: newPassword.php");
           }else{
             $error = "Wrong Code"; 
@@ -77,12 +77,12 @@
 
 <div class="container container-fluid">
   <h2>Enter The code that was sent to <?php echo $email?></h2>
-  <form class="border" action="confirmToken.php">
+  <form class="border" action="confirmToken.php" method="POST">
     <div class="form-group">
       <label style="text-align: center;" for="code">Reset Code:</label>
       <input type="text" class="form-control" id="code" placeholder="Enter Code" name="code">
     </div>
-    <button type="submit" class="btn btn-block btn-success">Submit</button>
+    <button type="submit" class="btn btn-block btn-success" name="submit">Submit</button>
   </form>
   <?php 
     if(isset($error)){echo '<h4>Wrong Code</h4>';}?>
