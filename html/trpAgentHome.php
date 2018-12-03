@@ -170,54 +170,6 @@
 
         
       </div>    
-
-<footer class=" site-footer navbar navbar-fixed-bottom navbar-inverse container-fluid">
-    <div id="theContent">
-        <div class="col-md-12 col-sm-12">
-
-        </div>
-        <div class="gridInfo col-md-3 col-sm-3">
-            <h5>Help & support</h5>
-            <ul >
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact US</a></li>
-            </ul>
-        </div>
-
-        <div class="gridInfo col-md-3 col-sm-3">
-            <h5>Social Media</h5>
-            <ul>
-        <li><img src="../icons/Facebook_32.png"></span></li>
-        <li><img src="../icons/Twitter_32.png"></span></li>
-      <ul>
-        </div>
-    </div>
-</footer>
-
-        <footer class=" site-footer navbar navbar-fixed-bottom navbar-default container-fluid">
-        <div id="theContent">
-            <div class="col-md-3 col-sm-3">
-
-            </div>
-            <div class="gridInfo col-md-6 col-sm-6">
-                <h5>Help & support</h5>
-                <ul >
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact US</a></li>
-                </ul>
-            </div>
-
-            <div class="gridInfo col-md-3 col-sm-3">
-                <h5>Social Media</h5>
-                <ul>
-            <li><img src="../icons/Facebook_32.png"></span></li>
-            <li><img src="../icons/Twitter_32.png"></span></li>
-          <ul>
-            </div>
-        </div>
-    </footer>
 </div>
 
 </body>

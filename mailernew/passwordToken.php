@@ -1,6 +1,6 @@
 <?php
     session_start();
-    echo$token = $_SESSION['token'];
+    echo $newtoken = $_SESSION['token'];
     echo $_SESSION['email'];
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
@@ -13,7 +13,7 @@ require 'vendor/autoload.php';
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
     //Server settings
-    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -34,7 +34,7 @@ try {
     //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
-    $bodyofemail = 'Use The Following to reset your password <b>$token!</b>';
+    $bodyofemail = "Use the following code to change your password<br/><strong>$newtoken</strong>.";
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
@@ -44,6 +44,7 @@ try {
 
     $mail->send();
     echo 'Message has been sent';
+     echo '<script type="text/javascript">window.location = "../php/confirmToken.php"</script>';
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
