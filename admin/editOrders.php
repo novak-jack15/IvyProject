@@ -27,19 +27,24 @@
     mysqli_free_result($result);
 }
 
-$sql2 = "SELECT * FROM shopperinfo WHERE shopperID=$id";
+$sql2 = "SELECT * FROM orders";
 $result2 =mysqli_query($conn,$sql2);
 while($res = mysqli_fetch_array($result2))
 {
+  $orderID = $res['orderID'];
+  $clothID = $res['clothID'];
+  $clothName = $res['clothName'];
+  $clothDescription = $res['clothDescription'];
+  $orderPrice = $res['orderPrice'];
+  $trpFee = $res['trpFee'];
   $shopperID = $res['shopperID'];
-  $shopperFname = $res['shopperFname'];
-  $shopperSname = $res['shopperSname'];
-  $shopperUsername = $res['shopperUsername'];
-  $shopperEmail = $res['shopperEmail'];
-  $shopperPhonenumber = $res['shopperPhonenumber'];
-  $shopperCounty = $res['shopperCounty'];
-  $shopperConstituency = $res['shopperConstituency'];
-  $shopperPassword = $res['shopperPassword']; 
+  $designerID = $res['designerID'];
+  $trpAgentID = $res['trpAgentID'];
+  $paymentCode = $res['paymentCode'];
+  $paymentStatus = $res['paymentStatus'];
+  $designerStatus = $res['designerStatus'];
+  $trpAgentStatus = $res['trpAgentStatus'];
+  $shopperStatus = $res['shopperStatus']; 
 }
 
 ?>
@@ -57,19 +62,19 @@ while($res = mysqli_fetch_array($result2))
     $trpFee = trim($_POST['trpFee']);
     $shopperID = trim($_POST['shopperID']);
     $designerID = trim($_POST['designerID']);
-    $trpAgentID = md5($_POST['trpAgentID']);
-    $paymentCode = md5($_POST['paymentCode']);
-    $paymentStatus = md5($_POST['paymentStatus']);
-    $designerStatus = md5($_POST['designerStatus']);
-    $trpAgentStatus = md5($_POST['trpAgentStatus']);
-    $shopperStatus = md5($_POST['shopperStatus']);
+    $trpAgentID = trim($_POST['trpAgentID']);
+    $paymentCode = trim($_POST['paymentCode']);
+    $paymentStatus = trim($_POST['paymentStatus']);
+    $designerStatus = trim($_POST['designerStatus']);
+    $trpAgentStatus = trim($_POST['trpAgentStatus']);
+    $shopperStatus = trim($_POST['shopperStatus']);
     
-      $sql2 = "UPDATE shopperinfo SET orderID ='$orderID', clothID = '$clothID', clothName = '$clothName', clothDescription = '$clothDescription', orderPrice = '$orderPrice', trpFee = 'u8hib kml,;/]\'  WHERE shopperID=$id";
+      $sql2 = "UPDATE orders SET clothID = '$clothID', clothName = '$clothName', clothDescription = '$clothDescription', orderPrice = '$orderPrice', trpFee = '$trpFee', shopperID = '$shopperID', designerID = '$designerID', trpAgentID = '$trpAgentID', paymentCode = '$paymentCode', paymentStatus = '$paymentStatus', designerStatus = '$designerStatus', trpAgentStatus = '$trpAgentStatus', shopperStatus = '$shopperStatus' WHERE orderID=$id";
 
       if(mysqli_query($conn,$sql2)==TRUE){
       //redirectig to the display page. In our case, it is index.php
       //echo "update was successful"; 
-      header("Location: shoppers.php");
+      header("Location: orders.php");
     }else{
       echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
@@ -200,41 +205,61 @@ tr:nth-child(even) {
                 <form name="form1" method="post" action="">
                   <table border="0">
                     <tr> 
-                      <td>Client ID</td>
-                      <td><input type="text" name="shopperID" readonly value="<?php echo $shopperID;?>"></td>
+                      <td>ID</td>
+                      <td><input type="text" name="orderID" readonly value="<?php echo $orderID;?>"></td>
                     </tr>
                   
                     <tr> 
-                      <td>First Name</td>
-                      <td><input type="text" name="shopperFname" required value="<?php echo $shopperFname;?>"></td>
+                      <td>Cloth ID</td>
+                      <td><input type="text" name="clothID" required value="<?php echo $clothID;?>"></td>
                     </tr>
                     <tr> 
-                      <td>Last Name</td>
-                      <td><input type="text" name="shopperSname"  required value="<?php echo $shopperSname;?>"></td>
+                      <td>Cloth Name</td>
+                      <td><input type="text" name="clothName"  required value="<?php echo $clothName;?>"></td>
                     </tr>
                     <tr> 
-                      <td>Username</td>
-                      <td><input type="text" name="shopperUsername" required value="<?php echo $shopperUsername;?>"></td>
+                      <td>Description</td>
+                      <td><input type="text" name="clothDescription" required value="<?php echo $clothDescription;?>"></td>
                     </tr>
                     <tr> 
-                      <td>E-mail</td>
-                      <td><input type="text" name="shopperEmail" required value="<?php echo $shopperEmail;?>"></td>
+                      <td>Price</td>
+                      <td><input type="text" name="orderPrice" required value="<?php echo $orderPrice;?>"></td>
                     </tr>
                     <tr> 
-                      <td>Phone</td>
-                      <td><input type="text" name="shopperPhonenumber" required value="<?php echo $shopperPhonenumber;?>"></td>
+                      <td>Shipping Fee</td>
+                      <td><input type="text" name="trpFee" required value="<?php echo $trpFee;?>"></td>
                     </tr>
                     <tr> 
-                      <td>County</td>
-                      <td><input type="text" name="shopperCounty" required value="<?php echo $shopperCounty;?>"></td>
+                      <td>Shopper ID</td>
+                      <td><input type="text" name="shopperID" required value="<?php echo $shopperID;?>"></td>
                     </tr>
                     <tr> 
-                      <td>Constituency</td>
-                      <td><input type="text" name="shopperConstituency" required value="<?php echo $shopperConstituency;?>"></td>
+                      <td>Designer ID</td>
+                      <td><input type="text" name="designerID" required value="<?php echo $designerID;?>"></td>
                     </tr>
                     <tr> 
-                      <td>Password</td>
-                      <td><input type="text" name="shopperPassword" required value="<?php echo $shopperPassword;?>"></td>
+                      <td>Agent ID</td>
+                      <td><input type="text" name="trpAgentID" required value="<?php echo $trpAgentID;?>"></td>
+                    </tr>
+                    <tr> 
+                      <td>Code</td>
+                      <td><input type="text" name="paymentCode" required value="<?php echo $paymentCode;?>"></td>
+                    </tr>
+                    <tr> 
+                      <td>Payment Status</td>
+                      <td><input type="text" name="paymentStatus" required value="<?php echo $paymentStatus;?>"></td>
+                    </tr>
+                    <tr> 
+                      <td>Designer Confirmation</td>
+                      <td><input type="text" name="designerStatus" required value="<?php echo $designerStatus;?>"></td>
+                    </tr>
+                    <tr> 
+                      <td>Agent Confirmation</td>
+                      <td><input type="text" name="trpAgentStatus" required value="<?php echo $trpAgentStatus;?>"></td>
+                    </tr>
+                    <tr> 
+                      <td>Shopper Confirmation</td>
+                      <td><input type="text" name="shopperStatus" required value="<?php echo $shopperStatus;?>"></td>
                     </tr>
                     <tr>
                       <!--<td><input type="hidden" name="id" value=<?php //echo $_GET['id'];?>></td>-->
