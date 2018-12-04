@@ -168,11 +168,9 @@ tr:nth-child(even) {
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">Add Shopper</a></li>
-              <li><a href="#">Add Designer</a></li>
-              <li><a href="#">Add Transport Agent</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="addShopper.php">Add Shopper</a></li>
+              <li><a href="addDesigner.php">Add Designer</a></li>
+              <li><a href="addShopper.php">Add Transport Agent</a></li>
             </ul>
           </div>  
           </div>
