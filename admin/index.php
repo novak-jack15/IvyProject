@@ -1,4 +1,96 @@
+<?php
+	$servername = "localhost";
+  	$username = "root";
+  	$password = "";
+  	$dbname = "ivyproject";
 
+  	// Create connection
+  	$conn = new mysqli($servername, $username, $password, $dbname);
+
+  	$sql = "SELECT * FROM shopperinfo";
+
+  	if ($result = mysqli_query($conn, $sql))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result);
+
+    	$shoppers = $row_cnt;
+    	mysqli_free_result($result);
+	}
+
+	$sql1 = "SELECT * FROM designerinfo";
+
+  	if ($result1 = mysqli_query($conn, $sql1))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result1);
+
+    	$designers = $row_cnt;
+    	mysqli_free_result($result1);
+	}
+
+	$sql2 = "SELECT * FROM trpagentinfo";
+
+  	if ($result2 = mysqli_query($conn, $sql2))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result2);
+
+    	$agents = $row_cnt;
+    	mysqli_free_result($result2);
+	}
+
+	$sql3 = "SELECT * FROM orders";
+
+  	if ($result3 = mysqli_query($conn, $sql3))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result3);
+
+    	$orders = $row_cnt;
+    	mysqli_free_result($result3);
+	}
+
+	$sql4 = "SELECT * FROM dispatch";
+
+  	if ($result4 = mysqli_query($conn, $sql4))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result4);
+
+    	$dispatch = $row_cnt;
+    	mysqli_free_result($result4);
+	}
+
+	$sql5 = "SELECT * FROM wages";
+
+  	if ($result5 = mysqli_query($conn, $sql5))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result5);
+
+    	$wages = $row_cnt;
+    	mysqli_free_result($result5);
+	}
+
+	$sql6 = "SELECT * FROM dispatch";
+
+  	if ($result6 = mysqli_query($conn, $sql6))
+  	{
+
+    	/* determine number of rows result set */
+    	$row_cnt = mysqli_num_rows($result6);
+
+    	$refunds = $row_cnt;
+    	mysqli_free_result($result6);
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,13 +182,13 @@
 					  <a href="#" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 
 					    Dashboard
 					  </a>
-					  <a href="shoppers.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Shoppers <span class="badge">10</span></a>
-					  <a href="#designers.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Designers <span class="badge">10</span></a>
-					  <a href="transporters.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Transporters <span class="badge">10</span></a>
-					  <a href="orders.php" class="list-group-item"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Orders <span class="badge">10</span></a>
-					  <a href="dispatches.php" class="list-group-item"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Dispatches <span class="badge">10</span></a>
-					  <a href="wages.php" class="list-group-item"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Wages <span class="badge">10</span></a>
-					  <a href="refunds.php" class="list-group-item"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Refunds <span class="badge">10</span></a>
+					  <a href="shoppers.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Shoppers <span class="badge"><?php echo $shoppers; ?></span></a>
+					  <a href="#designers.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Designers <span class="badge"><?php echo $designers; ?></span></a>
+					  <a href="transporters.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Transporters <span class="badge"><?php echo $agents; ?></span></a>
+					  <a href="orders.php" class="list-group-item"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Orders <span class="badge"><?php echo $orders; ?></span></a>
+					  <a href="dispatches.php" class="list-group-item"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Dispatches <span class="badge"><?php echo $dispatch; ?></span></a>
+					  <a href="wages.php" class="list-group-item"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Wages <span class="badge"><?php echo $wages; ?></span></a>
+					  <a href="refunds.php" class="list-group-item"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Refunds <span class="badge"><?php echo $refunds; ?></span></a>
 					</div> 
 
 					<div class="well">
