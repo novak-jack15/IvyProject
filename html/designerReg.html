@@ -390,7 +390,14 @@
 
     <div class="form-group col-md-4 col-sm-4">
       <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" name="password">
+      <input type="password" class="form-control" id="password" name="password" onkeyup='check()';>
+      <h4><span id='message'></span></h4>
+    </div>
+
+     <div class="form-group col-sm-4 col-md-4">
+      <label for="password2">Confirm Password:</label>
+      <input type="password" class="form-control" id="password2" name="password2" onkeyup='check()';>
+      <h4><span id='message'></span></h4>
     </div>
 
     <div class="clearfix"></div>
@@ -398,9 +405,24 @@
     <div class="text-center">
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </div>
+
+   
     
     </fieldset>
 </form>
+
+<script type="text/javascript">
+  var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
 </div>
 
 </body>
