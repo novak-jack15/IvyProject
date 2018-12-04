@@ -3,6 +3,11 @@
 	echo 'time to shop';
 	echo $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername']; 
+  if(isset($_SESSION['shopperID'])){
+    $status = "okay";
+  }else{
+    header("location: shopperLogin.php");
+  }
 
 ?>
 

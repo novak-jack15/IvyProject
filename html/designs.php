@@ -3,6 +3,12 @@
 	$shopper = $_SESSION['shopperID'];
 	$login_user = $_SESSION['shopperUsername'];
 
+  if(isset($_SESSION['shopperID'])){
+    $status = "okay";
+  }else{
+    header("location: shopperLogin.php");
+  }
+
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -27,7 +33,7 @@
 
     /* close result set */
     mysqli_free_result($result);
-}
+    }
 
 
 
