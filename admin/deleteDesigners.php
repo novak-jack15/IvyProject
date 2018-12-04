@@ -16,7 +16,7 @@ $sql = "DELETE FROM designerinfo WHERE designerID =$id";
 if(mysqli_query($conn,$sql)==TRUE){
 //redirecting to the display page (index.php in our case)
 	echo "success";
-	//header("Location: shoppers.php");
+	header("Location: designers.php");
 }else{
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
