@@ -106,12 +106,7 @@
         <!--links for navbar on the left-->
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="designs.php">Trends</a></li>
-              <li><a href="men.php">Men</a></li>
-              <li><a href="women.php">Women</a></li>
-              <li><a href="kids.php">Kids</a></li>
-              <li><a href="couples.php">Couples</a></li>
+              <li class="active"><a href="../index.html">Home</a></li>
             </ul>
 
             <!--links for navbar on the right-->
