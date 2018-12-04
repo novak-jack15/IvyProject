@@ -160,8 +160,8 @@
                       }
 
                       echo "<td>".$row['deliveryStatus']."</td>";       
-                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentConfirmation.php?id=$row[dispatchID]\">Edit</a></button> 
-                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentCancellation.php?id=$row[dispatchID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
+                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"editDispatches.php?id=$row[dispatchID]\">Edit</a></button> 
+                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"deleteDispatches.php?id=$row[dispatchID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
                       echo "</tr>";   
                     }
                   ?>

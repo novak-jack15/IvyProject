@@ -171,8 +171,8 @@
                       echo "<td>".$row['designerStatus']."</td>";
                       echo "<td>".$row['trpAgentStatus']."</td>";
                       echo "<td>".$row['shopperStatus']."</td>";        
-                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/shopperConfirmation.php?id=$row[orderID]\">Edit</a></button> 
-                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/shopperCancellation.php?id=$row[orderID]\" onClick=\"return confirm('Are you sure you want to cancel the and get a refund?')\">Delete</a></button></td>";
+                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"editOrders.php?id=$row[orderID]\">Edit</a></button> 
+                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"deleteOrders.php?id=$row[orderID]\" onClick=\"return confirm('Are you sure you want to cancel the and get a refund?')\">Delete</a></button></td>";
                       echo "</tr>";   
                     }
                   ?>                  

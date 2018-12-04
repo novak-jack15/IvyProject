@@ -10,7 +10,7 @@
   //items in shopping cart
   $items = '';
 
-  $sql = "SELECT * FROM dispatch";
+  $sql = "SELECT * FROM refunds";
 
   if ($result = mysqli_query($conn, $sql)){
 
@@ -127,25 +127,27 @@
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Dispatch Number</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Shipping Fee</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Cloth Name</th>
                     <th style="text-align: center;" colspan="2 scope="col">Shopper</th>
-                    <th scope="col">Delivery Status</th>
-                    <th scope="col">Decision Status</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                    $sql1 = "SELECT * FROM dispatch";
+                    $sql1 = "SELECT * FROM refunds";
 
                     $result1 = mysqli_query($conn,$sql1);
 
                     while($row = mysqli_fetch_array($result1)) {     
                       echo "<tr>";
-                      echo "<td>".$row['dispatchID']."</td>";
+                      echo "<td>".$row['refundID']."</td>";
+                      echo "<td>".$row['orderID']."</td>";
                       echo "<td>".$row['clothName']."</td>";
-                      echo "<td>Ksh. ".$row['trpFee']."</td>";
 
                       $shopperID = $row['shopperID'];
 
@@ -159,9 +161,11 @@
                         echo "<td>".$row3['shopperSname']."</td>";
                       }
 
-                      echo "<td>".$row['deliveryStatus']."</td>";       
-                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentConfirmation.php?id=$row[dispatchID]\">Edit</a></button> 
-                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentCancellation.php?id=$row[dispatchID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
+                      echo "<td>".$row['refundAmount']."</td>";
+                      echo "<td>".$row['refundStatus']."</td>";
+                      echo "<td>".$row['reason']."</td>";       
+                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"editRefunds.php?id=$row[refundID]\">Edit</a></button> 
+                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"deleteRefunds.php?id=$row[refundID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
                       echo "</tr>";   
                     }
                   ?>

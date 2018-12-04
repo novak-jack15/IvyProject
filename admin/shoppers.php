@@ -134,9 +134,6 @@
                     <th scope="col">Phone Number</th>
                     <th scope="col">County</th>
                     <th scope="col">Constituency</th>
-                    <th scope="col">Longitude</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Password Reset Token</th>
                     <th scope="col">Password</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -157,12 +154,9 @@
                       echo "<td>".$row['shopperPhonenumber']."</td>";
                       echo "<td>".$row['shopperCounty']."</td>";
                       echo "<td>".$row['shopperConstituency']."</td>";
-                      echo "<td>".$row['longitude']."</td>";
-                      echo "<td>".$row['latitude']."</td>";
-                      echo "<td>".$row['passwordReset']."</td>";
                       echo "<td>".$row['shopperPassword']."</td>";       
-                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentConfirmation.php?id=$row[shopperID]\">Edit</a></button> 
-                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"../php/trpAgentCancellation.php?id=$row[shopperID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
+                      echo "<td><button style='margin:5px' type='button' class='btn btn-success btn-block'><a style='text-decoration: none; color: white;' href=\"editShoppers.php?id=$row[shopperID]\">Edit</a></button> 
+                      <button style='margin:5px' type='button' class='btn btn-danger btn-block center-blocks'><a style='text-decoration: none; color: white;' href=\"deleteShoppers.php?id=$row[shopperID]\" onClick=\"return confirm('Are you sure you want to cancel the order placed by the client?')\">Delete</a></button></td>";
                       echo "</tr>";   
                     }
                   ?>
