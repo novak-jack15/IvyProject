@@ -99,7 +99,7 @@
 				    echo "<div class='card-body'>";
 				      echo "<h4 style='text-align: center; text-transform: capitalize; font-weight: bold;' class='card-title'>".$row['clothName']."</h4>";
 				      echo "<p class='card-text' style='text-align: center; text-transform: capitalize; font-weight: bold;'>Ksh.".$row['clothPrice']."</p>";
-				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'>Add to Cart<a href='#' class=''></a></button>";
+				      echo "<button class = 'text-center center-block grow grow-button btn btn-primary text-center'>Add to Cart<a href='addToCart.php' class=''></a></button>";
 				      echo "<br>";
 				      echo "<br>";
 				    echo "</div>";

@@ -91,7 +91,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <h5 class="my-0 mr-md-auto font-weight-normal">Shopper Login Page</h5>
     </nav>
-    <a class="btn btn-outline-primary" href="html/shopperReg.html">Sign Up</a>
+    <a class="btn btn-outline-primary" href="shopperReg.html">Sign Up</a>
   </div>
 
   <div class="modal-dialog text-center">

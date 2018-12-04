@@ -97,7 +97,7 @@ try
 
     //Recipients
     $mail->setFrom('ivydesigns20@gmail.com', 'Ivy Designs');
-    $mail->addAddress('jobokello5@gmail.com');     // Add a recipient
+    $mail->addAddress($desEmail);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
     //$mail->addReplyTo('info@example.com', 'Information');
     //$mail->addCC('cc@example.com');
@@ -137,7 +137,7 @@ try
 
             //Recipients
             $mail->setFrom('ivydesigns20@gmail.com', 'Ivy Designs');
-            $mail->addAddress('jacknovak254@gmail.com');     // Add a recipient
+            $mail->addAddress($shopEmail);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
