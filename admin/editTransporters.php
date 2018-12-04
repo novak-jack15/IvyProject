@@ -64,7 +64,7 @@ while($res = mysqli_fetch_array($result2))
       if(mysqli_query($conn,$sql2)==TRUE){
       //redirectig to the display page. In our case, it is index.php
       //echo "update was successful"; 
-      header("Location: trpAgents.php");
+      header("Location: transporters.php");
     }else{
       echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
